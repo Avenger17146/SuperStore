@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ChoiceBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TitledPane?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<TitledPane animated="false" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" text="Customer_GUI" xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Customer_GUI">
+  <content>
+    <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+         <children>
+            <ChoiceBox layoutX="299.0" layoutY="101.0" prefWidth="150.0" />
+            <Label layoutX="117.0" layoutY="96.0" text="Select Store" />
+            <Button layoutX="348.0" layoutY="151.0" mnemonicParsing="false" onMouseClicked="#View_Cart" text="Browse" />
+            <Button layoutX="149.0" layoutY="248.0" mnemonicParsing="false" text="View Cart" />
+            <Button layoutX="247.0" layoutY="248.0" mnemonicParsing="false" onMouseClicked="#Remove_From_Cart" text="Remove From Cart" />
+            <Button layoutX="403.0" layoutY="248.0" mnemonicParsing="false" onMouseClicked="#Check_Out" text="Check Out" />
+            <Button layoutX="234.0" layoutY="297.0" mnemonicParsing="false" onMouseClicked="#Login_Another" text="Login as another user" />
+         </children></AnchorPane>
+  </content>
+</TitledPane>
