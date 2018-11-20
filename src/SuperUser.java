@@ -98,6 +98,14 @@ public class SuperUser implements Serializable {
 
     public SuperUser()
     {
+        try
+        {
+            DeserialiseList();
+        }
+        catch (Exception e)
+        {
+            System.out.println(e.getMessage());
+        }
 
 
     }
