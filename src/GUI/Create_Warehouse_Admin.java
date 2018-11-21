@@ -1,5 +1,8 @@
+package GUI;
+
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
+import javafx.scene.input.MouseEvent;
 
 public class Create_Warehouse_Admin {
 
@@ -11,4 +14,10 @@ public class Create_Warehouse_Admin {
 
     @FXML
     private ListView Warehouse_List;
+
+    @FXML
+    public void Create(MouseEvent e)
+    {
+    	
+    }
 }

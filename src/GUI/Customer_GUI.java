@@ -27,6 +27,11 @@ public class Customer_GUI {
     public void Login_Another()
     {
 
+    }   
+    @FXML
+    public void Browse()
+    {
+
     }
 }
 

@@ -6,7 +6,7 @@
 <?import javafx.scene.control.TitledPane?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<TitledPane animated="false" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" text="Update Product" xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.Update_Product">
+<TitledPane animated="false" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" text="Update Product" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.Update_Product">
     <content>
         <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
             <children>
@@ -17,13 +17,13 @@
                 <Label layoutX="36.0" layoutY="196.0" text="Fixed cost(D)" />
                 <Label layoutX="33.0" layoutY="232.0" text="Carrying cost(H)" />
                 <Label layoutX="32.0" layoutY="280.0" text="Item demand (K)" />
-                <TextField layoutX="171.0" layoutY="70.0" />
-                <TextField layoutX="171.0" layoutY="110.0" />
-                <TextField layoutX="171.0" layoutY="155.0" />
-                <TextField layoutX="171.0" layoutY="192.0" />
-                <TextField layoutX="171.0" layoutY="228.0" />
-                <TextField layoutX="171.0" layoutY="276.0" />
-                <Button layoutX="268.0" layoutY="312.0" mnemonicParsing="false" text="Update" />
+                <TextField fx:id="ID" layoutX="171.0" layoutY="70.0" />
+                <TextField fx:id="Price" layoutX="171.0" layoutY="110.0" />
+                <TextField fx:id="Quantity" layoutX="171.0" layoutY="155.0" />
+                <TextField fx:id="D" layoutX="171.0" layoutY="192.0" />
+                <TextField fx:id="H" layoutX="171.0" layoutY="228.0" />
+                <TextField fx:id="K" layoutX="171.0" layoutY="276.0" />
+                <Button layoutX="268.0" layoutY="312.0" mnemonicParsing="false" onMouseClicked="#Update" text="Update" />
             </children></AnchorPane>
     </content>
 </TitledPane>
