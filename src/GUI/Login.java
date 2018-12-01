@@ -46,7 +46,7 @@ public class Login {
     }
     public void Login(MouseEvent e)
     {	
-    	String[] array= {"Super_User.fxml","Warehouse_Admin.fxml","Store_Admin.fxml",};    	
+    	String[] array= {"Super_User.fxml","Warehouse_Admin.fxml","Store_Admin.fxml","Customer_Login.fxml"};
     	
     	String a=ID.getText();
     	String b=Password.getText();
