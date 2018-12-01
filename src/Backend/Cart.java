@@ -26,11 +26,11 @@ public class Cart implements Serializable {
         qlist = new ArrayList<Integer>();
     }
 
-    public void add(String pro, int qty)
+    public void add(int id, int qty)
     {
         try
         {
-            Product p = dbs.search(pro);
+            Product p = dbs.search(id);
             plist.add(p);
             qlist.add(qty);
         }
@@ -49,7 +49,7 @@ public class Cart implements Serializable {
         {
             try
             {
-                funds = dbs.sale(plist.get(i).getName(),qlist.get(i),funds);
+                funds = dbs.sale(plist.get(i),qlist.get(i),funds);
                 plist.remove(i);
                 if ( funds < 0)
                     throw (new InsufficientFundsException());
