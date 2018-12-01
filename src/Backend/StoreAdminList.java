@@ -1,8 +1,9 @@
 package Backend;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 
-public class StoreAdminList {
+public class StoreAdminList implements Serializable {
     private ArrayList<StoreAdmin> StoreAdmins;
 
     public StoreAdminList()

@@ -2,9 +2,10 @@ package Backend;
 
 
 
+import java.io.Serializable;
 import java.util.ArrayList;
 
-public class Warehouse {
+public class Warehouse implements Serializable {
     private Database db;
     private String Name;
     private int ID;

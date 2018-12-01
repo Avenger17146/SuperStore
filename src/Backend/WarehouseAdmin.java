@@ -2,7 +2,7 @@ package Backend;
 
 import java.io.*;
 
-public class WarehouseAdmin {
+public class WarehouseAdmin implements Serializable{
     private Warehouse warehouse;
     private String ID;
     private String Password;

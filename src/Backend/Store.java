@@ -1,6 +1,8 @@
 package Backend;
 
-public class Store {
+import java.io.Serializable;
+
+public class Store implements Serializable {
     private String Name;
     private String ID;
     private Database db;

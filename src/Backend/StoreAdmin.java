@@ -1,6 +1,8 @@
 package Backend;
 
-public class StoreAdmin {
+import java.io.Serializable;
+
+public class StoreAdmin implements Serializable {
     public String ID;
     private String password;
     private Store store;
