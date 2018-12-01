@@ -4,18 +4,20 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.PasswordField?>
 <?import javafx.scene.control.TextField?>
-<?import javafx.scene.control.TitledPane?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
 
-<TitledPane animated="false" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" text="Login" xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.Login">
-  <content>
-    <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
-         <children>
-            <Button layoutX="289.0" layoutY="259.0" mnemonicParsing="false" onMouseClicked="#Login" text="Login" />
-            <Label layoutX="88.0" layoutY="84.0" text="ID" />
-            <Label layoutX="50.0" layoutY="122.0" prefHeight="17.0" prefWidth="61.0" text="Password" />
-            <TextField fx:id="ID" layoutX="140.0" layoutY="80.0" />
-            <PasswordField fx:id="Password" layoutX="140.0" layoutY="118.0" />
-         </children></AnchorPane>
-  </content>
-</TitledPane>
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.Login">
+   <children>
+      <Label layoutX="167.0" layoutY="126.0" text="ID" />
+      <Label layoutX="167.0" layoutY="183.0" text="Password" />
+      <PasswordField fx:id="Password" layoutX="251.0" layoutY="179.0" />
+      <TextField fx:id="ID" layoutX="251.0" layoutY="122.0" />
+      <Button layoutX="251.0" layoutY="268.0" mnemonicParsing="false" onMouseClicked="#Login" text="Login" />
+      <Label fx:id="label" layoutX="237.0" layoutY="227.0" textFill="#d72e2e">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font>
+      </Label>
+   </children>
+</AnchorPane>
