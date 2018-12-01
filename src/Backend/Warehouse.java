@@ -8,7 +8,7 @@ import java.util.ArrayList;
 public class Warehouse implements Serializable {
     private Database db;
     private String Name;
-    private int ID;
+    private String ID;
     private ArrayList<Message> messages;
 
     public Database getDb() {
@@ -27,11 +27,11 @@ public class Warehouse implements Serializable {
         Name = name;
     }
 
-    public int getID() {
+    public String getID() {
         return ID;
     }
 
-    public void setID(int ID) {
+    public void setID(String ID) {
         this.ID = ID;
     }
 
@@ -43,7 +43,7 @@ public class Warehouse implements Serializable {
         this.messages = messages;
     }
 
-    public Warehouse(String name, int ID) {
+    public Warehouse(String name, String ID) {
         Name = name;
         this.ID = ID;
     }
