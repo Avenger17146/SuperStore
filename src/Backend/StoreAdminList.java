@@ -21,4 +21,15 @@ public class StoreAdminList {
     public void setStoreAdmins(ArrayList<StoreAdmin> StoreAdmins) {
         this.StoreAdmins = StoreAdmins;
     }
+
+
+    public StoreAdmin authenticate(String a, String b)
+    {
+        for ( int i = 0; i<= StoreAdmins.size()-1; i++)
+        {
+            if (StoreAdmins.get(i).getID().equals(a)&&StoreAdmins.get(i).getPassword().equals(b))
+                return StoreAdmins.get(i);
+        }
+        return null;
+    }
 }

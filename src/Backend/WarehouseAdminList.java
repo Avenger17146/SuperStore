@@ -21,4 +21,14 @@ public class WarehouseAdminList {
     public void setWarehouseAdmins(ArrayList<WarehouseAdmin> warehouseAdmins) {
         this.warehouseAdmins = warehouseAdmins;
     }
+
+    public WarehouseAdmin authenticate(String a, String b)
+    {
+        for ( int i = 0; i<= warehouseAdmins.size()-1; i++)
+        {
+            if (warehouseAdmins.get(i).getID().equals(a)&&warehouseAdmins.get(i).getPassword().equals(b))
+                return warehouseAdmins.get(i);
+        }
+        return null;
+    }
 }
