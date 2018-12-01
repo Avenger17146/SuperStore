@@ -10,26 +10,7 @@ import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
 
 public class Super_User {
-	
-	@FXML
-	void initialize(){
-		try
-        {
-    		FXMLLoader loader= new FXMLLoader(getClass().getResource("Super_User_Display.fxml"));
-    		Parent root = loader.load();
-        
-    		Super_User_Display log=loader.getController();
-    		Stage stage = new Stage();
-    		stage.setScene(new Scene(root,600,600));
-		    stage.setTitle("SuperStore");
-		    stage.show();
-
-        }
-        catch (IOException f)
-        {
-            f.printStackTrace();
-        }
-	}
+    Stage mystage ;
 	
     @FXML
     public void Create_Warehouse(MouseEvent e)
@@ -182,41 +163,35 @@ public class Super_User {
     @FXML
     public void Log_Out_Super_User()
     {
-    	try
-        {
-    		FXMLLoader loader= new FXMLLoader(getClass().getResource("Login_type.fxml"));
-    		Parent root = loader.load();
-        
-    		Login_type log=loader.getController();
-    		Stage stage = Main.Mstage;
-    		stage.setScene(new Scene(root));
-		    stage.setTitle("SuperStore");
-		    stage.show();
-    
-        }
-        catch (IOException f)
-        {
-            f.printStackTrace();
-        }
+    	mystage.close();
     }
     @FXML
     public void Login_Another()
     {
-    	try
+    	 mystage.close();
+    }
+
+	public void setSTAGE(Stage stagi) {
+		mystage=stagi;
+	}
+	public void dispy() {
+		try
         {
-    		FXMLLoader loader= new FXMLLoader(getClass().getResource("Login_type.fxml"));
+    		FXMLLoader loader= new FXMLLoader(getClass().getResource("Super_User_Display.fxml"));
     		Parent root = loader.load();
         
-    		Login_type log=loader.getController();
-    		Stage stage = Main.Mstage;
-    		stage.setScene(new Scene(root));
+    		Super_User_Display log=loader.getController();
+    		Stage stage = new Stage();
+    		stage.setScene(new Scene(root,600,600));
 		    stage.setTitle("SuperStore");
 		    stage.show();
-    
+		    
+		    log.setSTAGE(stage);
+
         }
         catch (IOException f)
         {
             f.printStackTrace();
         }
-    }
+	}
 }

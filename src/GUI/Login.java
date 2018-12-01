@@ -60,8 +60,13 @@ public class Login {
 	    	if(CurUser==0  && a.equals("admin")&& b.equals("admin")) 
 	    	{
 	    		Super_User log=loader.getController();
-	    		
-	    		DoIt=true;
+	    		Stage stage = new Stage();
+	    	    stage.setScene(new Scene(root));
+	    	    stage.setTitle("SuperStore");
+	    	    stage.show();
+	    	    
+	    	    log.setSTAGE(stage);
+	    	    log.dispy();
 	    	}
 	    	else if(CurUser==1) 
 	    	{
@@ -81,7 +86,12 @@ public class Login {
 	    		if(WAlist.authenticate(a, b)!=null)
 	    		{
 	    		Warehouse_Admin log=loader.getController();
-	    		DoIt=true;
+	    		
+	    		Stage stage = new Stage();
+	    	    stage.setScene(new Scene(root));
+	    	    stage.setTitle("SuperStore");
+	    	    stage.show();
+	    	    
 	    		log.startit(WAlist.authenticate(a, b));
 	    		}
 	    	}
@@ -102,26 +112,27 @@ public class Login {
 		        }
 		    	if(SAlist.authenticate(a, b)!=null) {
 	    		Store_Admin log=loader.getController();
-	    		DoIt=true;
-	    		log.startit(SAlist.authenticate(a, b));}
-			}
-		    else if(CurUser==3)
-		    {
-	    		Customer_Login log=loader.getController();
-	    		DoIt=true;
-		    	
-		    }
-	        else
-	            label.setText("Wrong ID or Password! Try again");
-	    	
-	    	if (DoIt==true) {
 	    		
 	    		Stage stage = new Stage();
 	    	    stage.setScene(new Scene(root));
 	    	    stage.setTitle("SuperStore");
 	    	    stage.show();
 	    	    
-	    		}
+	    		log.startit(SAlist.authenticate(a, b));}
+			}
+		    else if(CurUser==3)
+		    {
+	    		Customer_Login log=loader.getController();
+	    		
+	    		Stage stage = new Stage();
+	    	    stage.setScene(new Scene(root));
+	    	    stage.setTitle("SuperStore");
+	    	    stage.show();
+		    	
+		    }
+	        else
+	            label.setText("Wrong ID or Password! Try again");
+	    	
 		}
 	    catch (Exception ex) {
 	    	System.err.println(ex);

@@ -1,11 +1,9 @@
 package GUI;
 
-import Backend.WarehouseAdmin;
 import javafx.fxml.FXML;
 import javafx.scene.control.ChoiceBox;
 
 public class Browse_Product {
-    private  WarehouseAdmin warehouseAdmin;
 	
 	@FXML
 	private ChoiceBox Select_Category;
@@ -23,8 +21,5 @@ public class Browse_Product {
     {
 
     }
-	public void send(WarehouseAdmin warehouseAdmin, String a)
-    {
-        this.warehouseAdmin = warehouseAdmin;
-    }
+	
 }

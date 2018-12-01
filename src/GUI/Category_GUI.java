@@ -1,11 +1,12 @@
 package GUI;
 
+import Backend.Store;
+import Backend.Warehouse;
 import javafx.fxml.FXML;
 import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.ListView;
 
 public class Category_GUI {
-
 
 	@FXML
 	private ChoiceBox Categories;
@@ -16,7 +17,7 @@ public class Category_GUI {
 	@FXML
     public void Sort_Items()
     {
-
+		
     }
     @FXML
     public void Browse()
@@ -28,5 +29,13 @@ public class Category_GUI {
     {
 
     }
+	public void setStore(Store selectedS) {
+		// TODO Auto-generated method stub
+		
+	}
+	public void setWare(Warehouse selectedW) {
+		// TODO Auto-generated method stub
+		
+	}
 
 }

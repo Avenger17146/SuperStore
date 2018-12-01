@@ -6,7 +6,7 @@
 <?import javafx.scene.control.TitledPane?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<TitledPane animated="false" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" text="Super User" xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.Super_User_Display">
+<TitledPane animated="false" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" text="Super User" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.Super_User_Display">
     <content>
         <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
             <children>
@@ -14,8 +14,9 @@
                 <ListView fx:id="Storelist" layoutX="305.0" layoutY="106.0" prefHeight="200.0" prefWidth="200.0" />
                 <Label layoutX="94.0" layoutY="62.0" text="Warehouse" />
                 <Label layoutX="391.0" layoutY="62.0" text="Store" />
-                <Button layoutX="370.0" layoutY="323.0" mnemonicParsing="false" onMouseClicked="#Browse" text="Browse" />
-            <Button layoutX="105.0" layoutY="323.0" mnemonicParsing="false" onMouseClicked="#Back" text="Back" />
+                <Button layoutX="370.0" layoutY="323.0" mnemonicParsing="false" onMouseClicked="#BrowseS" text="Browse Store" />
+            <Button layoutX="14.0" layoutY="20.0" mnemonicParsing="false" onMouseClicked="#Back" text="Back" />
+            <Button layoutX="72.0" layoutY="323.0" mnemonicParsing="false" onMouseClicked="#BrowseW" text="Browse Warehouse" />
             </children></AnchorPane>
     </content>
 </TitledPane>
