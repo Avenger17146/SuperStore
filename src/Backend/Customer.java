@@ -74,15 +74,15 @@ public class Customer implements Serializable {
 
     }
 
-    public void addProduct()
+    public void addProduct(int id, int qty)
     {
-        System.out.println("Enter product name");
+        /*System.out.println("Enter product name");
         String pro = s.next();
         if ( pro.equalsIgnoreCase(""))
             pro = s.next();
         System.out.println("Enter quantity ");
-        int qty = s.nextInt();
-        cart.add(pro,qty);
+        int qty = s.nextInt();*/
+        cart.add(id,qty);
 
     }
 
