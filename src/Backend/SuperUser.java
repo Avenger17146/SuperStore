@@ -108,7 +108,19 @@ public class SuperUser implements Serializable {
         {
             System.out.println(e.getMessage());
         }
+    }
 
+    public void CreateStoreAdmin(String a, Store b)
+    {
 
+    }
+
+    public void CreateWarehouseAdmin(String a, Warehouse b)
+    {
+
+    }
+    public void Link(Warehouse a, Store b)
+    {
+        //
     }
 }
