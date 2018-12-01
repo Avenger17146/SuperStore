@@ -64,11 +64,11 @@ public class Category implements Serializable {
         }
         return null;
     }
-    public Product findp(String a)
+    public Product findp(int a)
     {
         for ( int j = 0; j<= Plist.size()-1;j++ )
         {
-            if ( Plist.get(j).getName().equalsIgnoreCase(a) )
+            if ( Plist.get(j).getID() == a )
             {
                 return Plist.get(j);
             }

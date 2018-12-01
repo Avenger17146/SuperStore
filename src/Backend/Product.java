@@ -5,14 +5,9 @@ import java.io.Serializable;
 public class Product implements Serializable {
 
         protected String Name, path;
-        protected int Quantity, Price;
+        protected int Quantity, Price, ID,H, D, K;
 
-        public Product(String a, int b, int c)
-        {
-            Name = a;
-            Price = b;
-            Quantity = c;
-        }
+
 
         public String getName() {
             return Name;
@@ -22,7 +17,54 @@ public class Product implements Serializable {
             return Quantity;
         }
 
-        public void setPath(String path) {
+    public void setName(String name) {
+        Name = name;
+    }
+
+    public int getID() {
+        return ID;
+    }
+
+    public void setID(int ID) {
+        this.ID = ID;
+    }
+
+    public int getH() {
+        return H;
+    }
+
+    public void setH(int h) {
+        H = h;
+    }
+
+    public int getD() {
+        return D;
+    }
+
+    public void setD(int d) {
+        D = d;
+    }
+
+    public int getK() {
+        return K;
+    }
+
+    public void setK(int k) {
+        K = k;
+    }
+
+    public Product(String name, int quantity, int price, int ID, int h, int d, int k) {
+        Name = name;
+       // this.path = path;
+        Quantity = quantity;
+        Price = price;
+        this.ID = ID;
+        H = h;
+        D = d;
+        K = k;
+    }
+
+    public void setPath(String path) {
             this.path = path;
         }
 

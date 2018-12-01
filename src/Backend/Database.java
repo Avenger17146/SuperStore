@@ -27,7 +27,7 @@ public class Database implements Serializable {
         return null;
     }
 
-    public void insert(String cat, String pro, int price, int qnt) throws ProductAlredayExistsException
+    public void insert(String cat, Product pro) throws ProductAlredayExistsException
     {
         String[] cats = cat.split(">");
         Category temp;
@@ -47,7 +47,7 @@ public class Database implements Serializable {
                 temp = temp.find(cats[i]);
             }
         }
-        Product p  = temp.findp(pro);
+        Product p  = temp.findp(pro.getID());
         if ( p != null )
         {
             throw (new ProductAlredayExistsException());
@@ -55,15 +55,15 @@ public class Database implements Serializable {
         else
         {
 
-            p = new Product(pro,price,qnt);
             p.setPath(cat);
             temp.getPlist().add(p);
             Products.add(p);
         }
     }
 
-    public void delete(String del) throws InvalidPathException
+    public void delete(Product pro) throws InvalidPathException
     {
+        String del = pro.getPath();
         String[] dels = del.split(">");
         Category temp;
         temp = find(dels[0]);
@@ -77,7 +77,7 @@ public class Database implements Serializable {
             Categories.remove(find(dels[0]));
             return;
         }
-        for ( int i = 1; i<= dels.length-3; i++)
+        for ( int i = 1; i<= dels.length-2; i++)
         {
             temp = temp.find(dels[i]);
             if ( temp == null)
@@ -86,14 +86,14 @@ public class Database implements Serializable {
                 //return;
             }
         }
-        if ( temp.findp(dels[dels.length-1]) == null && temp.find(dels[dels.length-1])== null )
+       /* if ( temp.findp(dels[dels.length-1]) == null && temp.find(dels[dels.length-1])== null )
         {
             throw (new InvalidPathException());
-        }
-        else if (temp.findp(dels[dels.length-1]) != null)
+        }*/
+        if (temp.findp(pro.getID()) != null)
         {
-             temp.getPlist().remove(temp.findp(dels[dels.length-1]));
-             Products.remove(temp.findp(dels[dels.length-1]));
+             temp.getPlist().remove(temp.findp(pro.getID()));
+             Products.remove(temp.findp(pro.getID()));
         }
         else if (temp.find(dels[dels.length-1])!= null)
         {
@@ -105,13 +105,13 @@ public class Database implements Serializable {
         return revenue;
     }
 
-    public Product search(String pro) throws ProductNotFoundException
+    public Product search(int id) throws ProductNotFoundException
     {
 
 
         for ( int j = 0; j<= Products.size()-1;j++ )
         {
-            if ( Products.get(j).getName().equalsIgnoreCase(pro) )
+            if ( Products.get(j).getID() == id )
             {
                 String src = Products.get(j).getPath();
                 String[] dels = src.split(">");
@@ -126,24 +126,21 @@ public class Database implements Serializable {
                     temp = temp.find(dels[i]);
                     if ( temp == null)
                     {
-                        Products.add(12,new Product("oneplus",24000,10));
                         throw(new ProductNotFoundException());
-
-
                     }
                 }
 
-                return temp.findp(pro);
+                return temp.findp(id);
             }
         }
         throw(new ProductNotFoundException());
     }
 
-    public void modify(String pro, int price, int qty)
+    public void modify(Product pro, Product n)
     {
         Product p;
         try {
-             p = search(pro);
+             p = search(pro.getID());
         }
         catch (Exception e)
         {
@@ -151,15 +148,14 @@ public class Database implements Serializable {
             return;
         }
 
-        p.setPrice(price);
-        p.setQuantity(qty);
+        p = pro;
     }
 
-    public int sale (String pro, int qty, int funds) throws UnavailableStockException
+    public int sale (Product pro, int qty, int funds) throws UnavailableStockException
     {
         Product p;
         try {
-            p = search(pro);
+            p = search(pro.getID());
         }
         catch (Exception e)
         {
