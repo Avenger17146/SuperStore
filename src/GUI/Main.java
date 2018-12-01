@@ -12,10 +12,14 @@ public class Main extends Application {
     @Override
     public void start(Stage primaryStage) throws Exception{
         Mstage =primaryStage;
-        Parent root = FXMLLoader.load(getClass().getResource("SuperUser_Login.fxml"));
-        Mstage.setTitle("Hello World");
+        FXMLLoader loader= new FXMLLoader(getClass().getResource("Login_type.fxml"));
+        Parent root = loader.load();
+        
+        Login_type login_type = loader.getController();
+        Mstage.setTitle("Super Store");
         Mstage.setScene(new Scene(root, 600, 400));
         Mstage.show();
+        
     }
 
     public static void main(String[] args) {
