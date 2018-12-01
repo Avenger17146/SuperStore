@@ -44,9 +44,10 @@ public class Login {
         inputStream = null;
        
     }
+    @FXML
     public void Login(MouseEvent e)
     {	
-    	String[] array= {"Super_User.fxml","Warehouse_Admin.fxml","Store_Admin.fxml","Customer_Login.fxml"};
+    	String[] array= {"Super_User.fxml","Warehouse_Admin.fxml","Store_Admin.fxml","Customer_Login.fxml"};    	
     	
     	String a=ID.getText();
     	String b=Password.getText();
@@ -70,7 +71,7 @@ public class Login {
 	    	        }
 	    	        catch (Exception et)
 	    	        {
-	    	            System.out.println("DFSDFSADFSA" + et.getMessage());
+	    	            System.out.println( et.getMessage());
 			            label.setText("Doesn't Exist");
 
 	    	        }
@@ -78,9 +79,11 @@ public class Login {
 	    	            inputStream.close();
 	    	        }
 	    		if(WAlist.authenticate(a, b)!=null)
-	    		{Warehouse_Admin log=loader.getController();
+	    		{
+	    		Warehouse_Admin log=loader.getController();
 	    		DoIt=true;
-	    		log.startit(WAlist.authenticate(a, b));}
+	    		log.startit(WAlist.authenticate(a, b));
+	    		}
 	    	}
 		    else if(CurUser==2  ) 
 		    {
