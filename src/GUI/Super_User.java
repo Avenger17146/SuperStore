@@ -8,6 +8,10 @@ import javafx.scene.Scene;
 import javafx.scene.input.MouseEvent;
 
 public class Super_User {
+	
+	@FXML
+	void initialize(){}
+	
     @FXML
     public void Create_Warehouse(MouseEvent e)
     {
