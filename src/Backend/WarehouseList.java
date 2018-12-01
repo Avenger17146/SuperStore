@@ -5,10 +5,7 @@ import java.util.ArrayList;
 
 public class WarehouseList implements Serializable {
     private ArrayList<Warehouse> warehouses;
-    public WarehouseList()
-    {
-        warehouses = new ArrayList<Warehouse>();
-    }
+
     public WarehouseList(ArrayList<Warehouse> warehouses) {
         this.warehouses = warehouses;
     }

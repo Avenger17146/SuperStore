@@ -5,10 +5,6 @@ import java.util.ArrayList;
 
 public class StoreList implements Serializable {
     private ArrayList<Store> stores;
-    public StoreList()
-    {
-        stores = new ArrayList<Store>();
-    }
 
     public StoreList(ArrayList<Store> stores) {
         this.stores = stores;

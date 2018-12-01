@@ -6,7 +6,7 @@ public class WarehouseAdmin implements Serializable{
     private Warehouse warehouse;
     private String ID;
     private String Password;
-    private WarehouseList Wlist = new WarehouseList();
+    private WarehouseList Wlist;
 
     public Warehouse getWarehouse() {
         return warehouse;

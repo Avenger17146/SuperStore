@@ -12,10 +12,10 @@ import java.util.ArrayList;
 public class SuperUser implements Serializable {
     private static String ID = "admin";
     private static String Password = "admin";
-    private WarehouseList Wlist = new WarehouseList();
-    private StoreList Slist = new StoreList();
-    private WarehouseAdminList WAlist = new WarehouseAdminList();
-    private StoreAdminList SAlist = new StoreAdminList();
+    private WarehouseList Wlist;
+    private StoreList Slist;
+    private WarehouseAdminList WAlist;
+    private StoreAdminList SAlist;
 
     public void SerialiseList() throws IOException
     {
@@ -150,78 +150,27 @@ public class SuperUser implements Serializable {
 
     public SuperUser()
     {
-       /* try
+        try
         {
             DeserialiseList();
         }
         catch (Exception e)
         {
             System.out.println(e.getMessage());
-        }*/
+        }
     }
 
-    public void CreateStoreAdmin(String a, String b)
+    public void CreateStoreAdmin(String a, Store b)
     {
-        StoreAdmin admin = new StoreAdmin(a,b);
-        SAlist.getStoreAdmins().add(admin);
-        try{
-            SerialiseList();
-        }
-        catch (Exception e)
-        {
-            System.out.println(e.getMessage());
-        }
 
     }
 
-    public void CreateWarehouseAdmin(String a, String b)
+    public void CreateWarehouseAdmin(String a, Warehouse b)
     {
-        WarehouseAdmin admin = new WarehouseAdmin(a,b);
-        WAlist.getWarehouseAdmins().add(admin);
-        try{
-            SerialiseList();
-        }
-        catch (Exception e)
-        {
-            System.out.println(e.getMessage());
-        }
+
     }
     public void Link(Warehouse a, Store b)
     {
-        b.setLinked(a);
-    }
-
-    public void CreateWarehouse(String a, String id)
-    {
-        Warehouse w = new Warehouse(a,id);
-        Wlist.getWarehouses().add(w);
-        try{
-            SerialiseList();
-        }
-        catch (Exception e)
-        {
-            System.out.println(e.getMessage());
-        }
-    }
-    public void CreateStore(String a, String id)
-    {
-        Store w = new Store(a,id);
-        Slist.getStores().add(w);
-        try{
-            SerialiseList();
-        }
-        catch (Exception e)
-        {
-            System.out.println(e.getMessage());
-        }
-    }
-
-    public static void main(String[] args)
-    {
-        SuperUser s = new SuperUser();
-        s.CreateStoreAdmin("Dhruv","8923");
-        s.CreateStore("Dhruv&bros.","8923");
-        s.CreateWarehouseAdmin("RAwal","Jaybalvin");
-        s.CreateWarehouse("Punjabi&co", "240");
+        //
     }
 }
