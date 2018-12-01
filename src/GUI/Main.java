@@ -18,8 +18,8 @@ public class Main extends Application {
         Mstage.show();
     }
 
-
     public static void main(String[] args) {
         launch(args);
     }
+    
 }

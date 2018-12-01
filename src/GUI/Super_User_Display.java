@@ -11,7 +11,7 @@ public class Super_User_Display {
     @FXML
     public void Browse()
     {
-        
+
     }
     @FXML
     public void Back()
