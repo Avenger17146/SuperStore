@@ -39,7 +39,10 @@ public class StoreAdmin implements Serializable {
     }
     public void send_request()
     {
+        for ( int i = 0; i<= store.getDb().getPro().size()-1; i++)
+        {
 
+        }
     }
     public String toString()
     {

@@ -5,6 +5,16 @@ import java.io.Serializable;
 public class Product implements Serializable {
 
         protected String Name, path;
+
+    public double getEoq() {
+        return eoq;
+    }
+
+    public void setEoq(double eoq) {
+        this.eoq = eoq;
+    }
+
+    private double eoq;
         protected int Quantity, Price, ID,H, D, K;
 
 
@@ -90,6 +100,11 @@ public class Product implements Serializable {
                 return true;
             else
                 return false;
+        }
+
+        public void calc()
+        {
+            eoq = Math.sqrt(2*D*K/H);
         }
 }
 

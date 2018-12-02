@@ -1,15 +1,79 @@
 package Backend;
 
 import java.io.*;
+import java.util.ArrayList;
 import java.util.Scanner;
 
 public class Customer implements Serializable {
-    private Cart cart;
+    private Cart Plist;
     private String name;
     private int funds;
     private StoreList Slist;
-   // private Database d;
-    Scanner s;
+    private Store store;
+
+    private ArrayList<Integer> qty = new ArrayList<Integer>();
+
+    public Cart getPlist() {
+        return Plist;
+    }
+
+    public void setPlist(Cart plist) {
+        Plist = plist;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public int getFunds() {
+        return funds;
+    }
+
+    public void setFunds(int funds) {
+        this.funds = funds;
+    }
+
+    public StoreList getSlist() {
+        return Slist;
+    }
+
+    public void setSlist(StoreList slist) {
+        Slist = slist;
+    }
+
+    public Store getStore() {
+        return store;
+    }
+
+    public void setStore(Store store) {
+        this.store = store;
+    }
+
+    public ArrayList<Product> getCart() {
+        return cart;
+    }
+
+    public void setCart(ArrayList<Product> cart) {
+        this.cart = cart;
+    }
+
+    private ArrayList<Product> cart = new ArrayList<Product>();
+
+
+    public Customer()
+    {
+        try{
+            Deserial();
+        }
+        catch(Exception e)
+        {
+            e.printStackTrace();
+        }
+    }
 
     public void Deserial()
     {
@@ -28,26 +92,59 @@ public class Customer implements Serializable {
 
         }
     }
+    public void addFunds(int fund)
+    {
+        funds = fund;
+    }
 
-/*
-    public static void SerializeCU(Cart db, String a) throws IOException {
-        ObjectOutputStream oStream = null;
-
-        try {
-            oStream = new ObjectOutputStream(new FileOutputStream(a+".dat"));
-            oStream.writeObject(db);
-            System.out.println("File saved");
-        }
-        catch (Exception e)
+    public Boolean addProduct(Product pro, int qty)
+    {
+        if (pro.getQuantity()>= qty)
         {
-            System.out.println(e.getMessage());
+            cart.add(pro);
+            this.qty.add(qty);
+            return true;
         }
-        finally {
-            oStream.close();
+        return false;
+    }
+
+    public void removeProduct(Product pro)
+    {
+        for ( int i = 0 ; i<= cart.size()-1; i++)
+        {
+            if ( pro.getID() == cart.get(i).getID())
+                cart.remove(i);
         }
     }
-*/
-    public static Cart DeserializeCU(String a) throws IOException, ClassNotFoundException {
+
+    public Boolean checkOut()
+    {
+        for ( int i = 0; i<= cart.size()-1; i++ )
+        {
+            if ( qty.get(i)> cart.get(i).getQuantity())
+            {
+                return  false;
+            }
+
+        }
+        for ( int i = 0; i<= cart.size()-1; i++ )
+        {
+            cart.get(i).setQuantity(-qty.get(i)+ cart.get(i).getQuantity());
+            if ( cart.get(i).getQuantity() < 0)
+            {
+                for ( int j = 0 ; j<= i; j++)
+                    cart.get(i).setQuantity(qty.get(i)+ cart.get(i).getQuantity());
+                return false;
+            }
+        }
+        return true;
+    }
+
+
+
+
+
+   /* public static Cart DeserializeCU(String a) throws IOException, ClassNotFoundException {
         ObjectInputStream inputStream = null;
         Cart db = null;
 
@@ -64,12 +161,14 @@ public class Customer implements Serializable {
         }
 
         return db;
-    }
+    }*/
 
-    public Cart getCart() {
-        return cart;
-    }
 
+
+    //public Cart getCart() {
+     /*   return cart;
+    }
+*/
     /*public Customer(Database dat, String a)
     {
         d = dat;
@@ -87,34 +186,29 @@ public class Customer implements Serializable {
         if ( cart == null) cart = new Cart(d,a);
         s = new Scanner(System.in);
     }*/
-    public Customer()
-    {
-        try{
-            Deserial();
-        }
-        catch(Exception e)
-        {
-            e.printStackTrace();
-        }
-    }
 
-    public void addFunds(int a)
+
+    /*public void addFunds(int a)
     {
         cart.setFunds(a);
 
-    }
+    }*/
+/*
 
     public void addProduct(int id, int qty)
     {
-        /*System.out.println("Enter product name");
+        */
+/*System.out.println("Enter product name");
         String pro = s.next();
         if ( pro.equalsIgnoreCase(""))
             pro = s.next();
         System.out.println("Enter quantity ");
-        int qty = s.nextInt();*/
+        int qty = s.nextInt();*//*
+
         cart.add(id,qty);
 
     }
+*/
 
    /* public Database checkout()
     {
@@ -142,3 +236,22 @@ public class Customer implements Serializable {
         }
     }*/
 }
+
+/*
+    public static void SerializeCU(Cart db, String a) throws IOException {
+        ObjectOutputStream oStream = null;
+
+        try {
+            oStream = new ObjectOutputStream(new FileOutputStream(a+".dat"));
+            oStream.writeObject(db);
+            System.out.println("File saved");
+        }
+        catch (Exception e)
+        {
+            System.out.println(e.getMessage());
+        }
+        finally {
+            oStream.close();
+        }
+    }
+*/
