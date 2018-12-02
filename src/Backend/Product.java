@@ -64,15 +64,15 @@ public class Product implements Serializable {
         K = k;
     }
 
-    public Product(String name, int quantity, int price,  int h, int d, int k) {
+    public Product(String name, String quantity, String price,  String h, String d, String k) {
         Name = name;
        // this.path = path;
-        Quantity = quantity;
-        Price = price;
+        Quantity = Integer.parseInt(quantity);
+        Price = Integer.parseInt(price);
         this.ID = name + quantity + price + h + d + k;
-        H = h;
-        D = d;
-        K = k;
+        H = Integer.parseInt(h);
+        D = Integer.parseInt(d);
+        K = Integer.parseInt(k);
     }
 
     public void setPath(String path) {

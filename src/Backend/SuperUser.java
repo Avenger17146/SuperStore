@@ -211,15 +211,15 @@ public class SuperUser implements Serializable {
         //Store a =  s.getSlist().getStores().get(0);
         try {
             System.out.println("here");
-            s.getSlist().getStores().get(0).getDb().insert("phone>op", new Product("oneplus", 2, 34000,  5, 6, 6));
+            s.getSlist().getStores().get(0).getDb().insert("phone>op", new Product("oneplus", "2", "34000",  "5", "6", "6"));
             System.out.println("here");
-            s.getSlist().getStores().get(0).getDb().insert("electronics>home>alexa", new Product("alexa", 2, 34000, 5, 6, 6));
+            s.getSlist().getStores().get(0).getDb().insert("electronics>home>alexa", new Product("alexa", "2", "34000", "5", "6", "6"));
             s.SAlist.getStoreAdmins().get(0).setStore(s.getSlist().getStores().get(0));
             s.WAlist.getWarehouseAdmins().get(0).setWarehouse(s.Wlist.getWarehouses().get(0));
-            s.Wlist.getWarehouses().get(0).getDb().insert("heelo>to>the>oher",new Product("side",23,23,23,23,32));
-            s.Wlist.getWarehouses().get(0).getDb().insert("blh",new Product("scjnzn",23,23,23,23,32));
-            Product dk = s.getSlist().getStores().get(0).getDb().search(8932);
-            System.out.println(dk.getName());
+            s.Wlist.getWarehouses().get(0).getDb().insert("heelo>to>the>oher",new Product("side","23","23","23","23","32"));
+            s.Wlist.getWarehouses().get(0).getDb().insert("blh",new Product("scjnzn","23","23","23","23","32"));
+            /*Product dk = s.getSlist().getStores().get(0).getDb().search(8932);
+            System.out.println(dk.getName());*/
             s.SerialiseList();
             ObjectOutputStream oStream = null;
 

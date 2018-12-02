@@ -26,7 +26,7 @@ public class Cart implements Serializable {
         qlist = new ArrayList<Integer>();
     }
 
-    public void add(int id, int qty)
+    public void add(String id, int qty)
     {
         try
         {
