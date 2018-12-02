@@ -179,16 +179,19 @@ public class SuperUser implements Serializable {
         }
     }
 
-}
-   /* public static void main(String[] args)
+
+    public static void main(String[] args)
     {
         SuperUser s = new SuperUser();
-        s.CreateStoreAdmin("Dhruv","8923");
+
         s.CreateStore("Dhruv&bros.","8923");
-        s.CreateWarehouseAdmin("RAwal","Jaybalvin");
+        Store a  = s.getSlist().getStores().get(0);
+        s.CreateStoreAdmin("Dhruv","8923",a);
         s.CreateWarehouse("Punjabi&co", "240");
+        s.CreateWarehouseAdmin("RAwal","Jaybalvin",s.getWlist().getWarehouses().get(0));
+
         s.getSlist().getStores().get(0).setLinked(s.getWlist().getWarehouses().get(0));
-        Store a =  s.getSlist().getStores().get(0);
+        //Store a =  s.getSlist().getStores().get(0);
         try {
             System.out.println("here");
             s.getSlist().getStores().get(0).getDb().insert("phone>op", new Product("oneplus", 2, 34000, 8932, 5, 6, 6));
@@ -225,4 +228,3 @@ public class SuperUser implements Serializable {
         }
     }
 }
-*/
