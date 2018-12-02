@@ -40,9 +40,10 @@ public class WarehouseAdmin implements Serializable{
         Wlist = wlist;
     }
 
-    public WarehouseAdmin(String ID, String password) {
+    public WarehouseAdmin(String ID, String password, Warehouse W) {
         this.ID = ID;
         Password = password;
+        warehouse = W;
         try {
             DeserialiseList();
         }

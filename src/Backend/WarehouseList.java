@@ -21,4 +21,6 @@ public class WarehouseList implements Serializable {
     public void setWarehouses(ArrayList<Warehouse> warehouses) {
         this.warehouses = warehouses;
     }
+
+
 }

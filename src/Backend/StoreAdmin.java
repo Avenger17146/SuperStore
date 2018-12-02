@@ -31,9 +31,10 @@ public class StoreAdmin implements Serializable {
         this.store = store;
     }
 
-    public StoreAdmin(String ID, String password) {
+    public StoreAdmin(String ID, String password, Store s) {
         this.ID = ID;
         this.password = password;
+        store = s;
         //this.store = store;
     }
     public void send_request()
