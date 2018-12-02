@@ -8,6 +8,9 @@ public class Category implements Serializable, Comparable<Category> {
     protected ArrayList<Product> Plist;
     protected ArrayList<Category> Clist;
 
+    public ArrayList<Product> getpList(){return Plist;}
+    public ArrayList<Category> getcList() {return Clist; }
+
     public Category( String a, Category b )
     {
         Name = a;

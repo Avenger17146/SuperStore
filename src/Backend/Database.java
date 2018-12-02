@@ -15,6 +15,10 @@ public class Database implements Serializable {
         Products = new ArrayList<Product>();
         revenue =0;
     }
+
+    public ArrayList<Product> getPro(){return Products;}
+    public ArrayList<Category> getCat(){return  Categories;}
+
     public Category find(String a)
     {
         for ( int j = 0; j<= Categories.size()-1;j++ )
