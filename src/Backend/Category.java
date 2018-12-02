@@ -59,11 +59,11 @@ public class Category implements Serializable, Comparable<Category> {
         }
         return null;
     }
-    public Product findp(int a)
+    public Product findp(String a)
     {
         for ( int j = 0; j<= Plist.size()-1;j++ )
         {
-            if ( Plist.get(j).getID() == a )
+            if ( Plist.get(j).getID().equals(a) )
             {
                 return Plist.get(j);
             }

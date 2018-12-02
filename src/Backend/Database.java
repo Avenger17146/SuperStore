@@ -109,13 +109,13 @@ public class Database implements Serializable {
         return revenue;
     }
 
-    public Product search(int id) throws ProductNotFoundException
+    public Product search(String id) throws ProductNotFoundException
     {
 
 
         for ( int j = 0; j<= Products.size()-1;j++ )
         {
-            if ( Products.get(j).getID() == id )
+            if ( Products.get(j).getID().equals(id) )
             {
                 String src = Products.get(j).getPath();
                 String[] dels = src.split(">");
