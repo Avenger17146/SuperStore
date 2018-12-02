@@ -92,7 +92,7 @@ public class Warehouse_Admin {
 				    stage.setTitle("SuperStore");
 				    stage.show();
 				    
-				    log.setWare(mySU,myWare.getWarehouse().getDb(),stage,null);
+				    log.setWare(mySU,myWare.getWarehouse().getDb(),stage,null,"");
 				    
 		        }
 		        catch (Exception f)
@@ -175,6 +175,8 @@ public class Warehouse_Admin {
 	private ObjectInputStream inputStream ;
 	private ArrayList<String> one;
     private WarehouseList Wlist;
+	private String a;
+	private String b;
     
     void ini() {
     	Wlist=mySU.getWlist();
@@ -206,12 +208,13 @@ public class Warehouse_Admin {
     	
     }
 	
-	public void startit(WarehouseAdmin w, SuperUser s) 
+	public void startit(WarehouseAdmin w, SuperUser s,String A,String B) 
 	{
 		
 		mySU=s;
 		myWare=w;
-		
+		a=A;
+		b=B;
 		ini();
 		
 	}
@@ -227,6 +230,7 @@ public class Warehouse_Admin {
 	        ObjectInputStream inputStream = new ObjectInputStream(new FileInputStream("SuperUser"+".dat"));
 	        mySU = (Backend.SuperUser)inputStream.readObject();
 			inputStream.close();
+			myWare=mySU.getWAlist().authenticate(a, b);
 
 	    }
 	    catch (Exception et)

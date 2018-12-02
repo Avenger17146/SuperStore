@@ -68,7 +68,7 @@ public class Category_GUI {
 		    stage.show();
 		    
 		    if(selCat!=null)
-		    log.setCat(selCat);
+		    log.setCat(selCat,null,stage);
 
         }
         catch (Exception f)

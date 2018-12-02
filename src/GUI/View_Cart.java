@@ -15,7 +15,7 @@ public class View_Cart {
 	@FXML
 	ListView<String> Cart;
 	@FXML
-    void initialize()
+    void ini()
     {
         ArrayList<String> a = new ArrayList<String>();
         for ( int i = 0 ;i<= customer.getCart().size()-1; i++)
@@ -30,5 +30,6 @@ public class View_Cart {
 	{
 		this.stage = stage;
 		customer = a;
+		ini();
 	}
 }

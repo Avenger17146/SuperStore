@@ -14,12 +14,16 @@ public class Remove_From_Cart {
 	@FXML
 	ChoiceBox<String>Select_Product;
 	@FXML
-	void initialize()
+	void ini()
 	{
 		ArrayList<String> a = new ArrayList<String>();
+		
 		for ( int i = 0; i<=customer.getCart().size()-1; i++)
 			a.add(customer.getCart().get(i).getName());
+		
 		Select_Product.setItems(FXCollections.observableList(a));
+		
+		if(a.size()!=0)Select_Product.setValue(a.get(0));
 	}
 	
 	@FXML
@@ -33,6 +37,7 @@ public class Remove_From_Cart {
     public void set(Customer a, Stage stage)
 	{
 		this.stage = stage;
-		a = customer;
+		customer=a;
+		ini();
 	}
 }

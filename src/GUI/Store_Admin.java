@@ -82,7 +82,7 @@ public class Store_Admin {
 				    stage.setTitle("SuperStore");
 				    stage.show();
 				    
-				    log.setWare(mySU,myStore.getStore().getDb(),stage,null);
+				    log.setWare(mySU,myStore.getStore().getDb(),stage,null,"");
 				    
 		        }
 		        catch (Exception f)
@@ -135,6 +135,8 @@ public class Store_Admin {
 
 	private ObjectInputStream inputStream ;
 	private ArrayList<String> one;
+	private String A;
+	private String B;
 	
 	void ini() {  
 		
@@ -150,10 +152,11 @@ public class Store_Admin {
     	
     }
 
-	public void startit(StoreAdmin st,SuperUser s) {
+	public void startit(StoreAdmin st,SuperUser s,String a,String b) {
 		mySU=s;
 		myStore=st;
-		
+		A=a;
+		B=b;
 		ini();		
 	}
 	public void setSTAGE(Stage stagi) 
@@ -166,6 +169,7 @@ public class Store_Admin {
 	        ObjectInputStream inputStream = new ObjectInputStream(new FileInputStream("SuperUser"+".dat"));
 	        mySU = (Backend.SuperUser)inputStream.readObject();
 			inputStream.close();
+			myStore= mySU.getSAlist().authenticate(A, B);
 
 	    }
 	    catch (Exception et)

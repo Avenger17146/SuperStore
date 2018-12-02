@@ -38,6 +38,7 @@ public class Customer_Login {
     public void set(Customer a)
     {
         customer =a;
+        Estimated_Budget.setText("0");
     }
 
 

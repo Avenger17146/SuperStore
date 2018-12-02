@@ -103,7 +103,7 @@ public class Login {
 	    	    stage.setTitle("SuperStore");
 	    	    stage.show();
 	    	    
-	    		log.startit(WAlist.authenticate(a, b),mySU);
+	    		log.startit(WAlist.authenticate(a, b),mySU,a,b);
 	    		log.setSTAGE(stage);
 	    		}
 	    		else
@@ -133,7 +133,7 @@ public class Login {
 	    	    stage.setTitle("SuperStore");
 	    	    stage.show();
 	    	    
-	    		log.startit(SAlist.authenticate(a, b),mySU);
+	    		log.startit(SAlist.authenticate(a, b),mySU,a,b);
 	    		log.setSTAGE(stage);
 		    	}
 		    	else

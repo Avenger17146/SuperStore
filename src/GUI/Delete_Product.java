@@ -71,7 +71,7 @@ public class Delete_Product {
 				    stage.setTitle("SuperStore");
 				    stage.show();
 				    
-				    log.setWare(mySU,myDB,stage,null,selPro);
+				    log.setWare(mySU,myDB,stage,null,selPro,selPro.getPath());
 
 		        }
 		        catch (Exception f)
@@ -87,14 +87,22 @@ public class Delete_Product {
 			//Delete
 	    	
 			try {
+				for(int i=0;i<myDB.getPro().size();i++) {
+					System.out.println(myDB.getPro().get(i).getName());
+				}
+				
 				myDB.delete(selPro);
-				SERIALALL();
+				
+				for(int i=0;i<myDB.getPro().size();i++) {
+					System.out.println(myDB.getPro().get(i).getName());
+				}
 
 			} catch (InvalidPathException e) {
 				e.printStackTrace();
 			}
 		}
 		
+		SERIALALL();
 		myStage.close();
 
 	}

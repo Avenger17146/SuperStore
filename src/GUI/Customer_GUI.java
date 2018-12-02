@@ -5,6 +5,7 @@ import Backend.Store;
 import Backend.SuperUser;
 import Backend.WarehouseList;
 import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -43,9 +44,12 @@ public class Customer_GUI {
             System.out.println(su.getSlist().getStores().get(i).getName()+"i");
 
         }
-        Select_Store.setItems(FXCollections.observableList(a));
-
-
+        
+        ObservableList<String> items1 =FXCollections.observableArrayList (a);    
+        Select_Store.setItems(items1);
+        
+        Select_Store.setValue(a.get(0));
+    	
 
     }
     @FXML

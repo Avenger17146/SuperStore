@@ -95,11 +95,7 @@ public class Database implements Serializable {
             throw(new InvalidPathException());
             //return;
         }
-        if ( dels.length == 1)
-        {
-            Categories.remove(find(dels[0]));
-            return;
-        }
+       
         for ( int i = 1; i<= dels.length-2; i++)
         {
             temp = temp.find(dels[i]);
@@ -118,10 +114,10 @@ public class Database implements Serializable {
              temp.getPlist().remove(temp.findp(pro.getID()));
              Products.remove(temp.findp(pro.getID()));
         }
-        else if (temp.find(dels[dels.length-1])!= null)
+        /*else if (temp.find(dels[dels.length-1])!= null)
         {
             temp.getClist().remove(temp.find(dels[dels.length-1]));
-        }
+        }*/
     }
 
     public void deleteCategory(Category a)

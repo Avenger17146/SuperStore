@@ -28,19 +28,17 @@ public class Product_Add {
 	private Database myDB;
 	private SuperUser mySU;
 	private Category parentCat;
+
+	private String path;
 	
 	@FXML
 	public void Add_Product()
 	{
-		int i=Select_Category.getSelectionModel().getSelectedIndex();
-		if(i<0)i=0;
+		
 		Category selCat;
 		if(parentCat!=null)
-			selCat= parentCat.getClist().get(i);
-		else
-			selCat=myDB.getCat().get(i);
-    	
-
+			{selCat= parentCat;
+			
 			try
 	        {
 	    		FXMLLoader loader= new FXMLLoader(getClass().getResource("Update_Product.fxml"));
@@ -52,27 +50,39 @@ public class Product_Add {
 			    stage.setTitle("SuperStore");
 			    stage.show();
 			    
-			    log.setWare(mySU,myDB,stage,selCat,null);
+			    log.setWare(mySU,myDB,stage,selCat,null,path);
 
 	        }
 	        catch (Exception f)
 	        {
 	            f.printStackTrace();
 	        }
+			}
 		
+
+			myStage.close();
+			
+		}
 		
-		myStage.close();
-	}
+	
 	@FXML
 	public void Browse()
 	{	int i=Select_Category.getSelectionModel().getSelectedIndex();
 		if(i<0)i=0;
 		Category selCat;
 		if(parentCat!=null)
-			selCat= parentCat.getClist().get(i);
+			{selCat= parentCat.getClist().get(i);
+    		path=path+">"+selCat.getName();
+
+			}
 		else
+			{
 			selCat=myDB.getCat().get(i);
+    		path=selCat.getName();
+
+			}
     	
+		
     	if(selCat!=null) {
     	try
         {
@@ -85,7 +95,7 @@ public class Product_Add {
 		    stage.setTitle("SuperStore");
 		    stage.show();
 		    
-		    log.setWare(mySU,myDB,stage,selCat);
+		    log.setWare(mySU,myDB,stage,selCat,path);
 
         }
         catch (Exception f)
@@ -97,11 +107,12 @@ public class Product_Add {
 
 	}
 	
-	public void setWare(SuperUser mU,Database mB, Stage stage, Category curC) {
+	public void setWare(SuperUser mU,Database mB, Stage stage, Category curC,String p) {
 		myStage=stage;
 		mySU=mU;
 		myDB=mB;
 		parentCat=curC;
+		path=p;
 		
 		setlists(0);
 	}
@@ -109,15 +120,18 @@ public class Product_Add {
 	private ArrayList<String> one=new ArrayList<String>();
     
     private void setprelists() 
-    {	if(parentCat==null) {
-    	if(myDB.getCat()!=null){
-    		
-			for ( int j = 0; j<= myDB.getCat().size()-1;j++ )
-	        {
-	    		one.add(myDB.getCat().get(j).getName());
-	    	}
-		}
-    }
+    {	
+    	if(parentCat==null)
+    	{
+	    	if(myDB.getCat()!=null)
+	    	{
+	    		
+				for ( int j = 0; j<= myDB.getCat().size()-1;j++ )
+		        {
+		    		one.add(myDB.getCat().get(j).getName());
+		    	}
+				}
+    	}
 		if(parentCat!=null){
 		
 				for ( int j = 0; j<= parentCat.getClist().size()-1;j++ )

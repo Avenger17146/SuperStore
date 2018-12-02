@@ -43,12 +43,15 @@ public class Update_Product {
 	
 
 	private Product pro;
+	private String path;
 	
 	@FXML
 	public void Update()
     {
 		Product p= new Product(Name.getText(),Quantity.getText(),Price.getText(),
 				H.getText(),D.getText(),K.getText());
+		
+		p.setPath(path);	
 		
 		if(Cat==null && pro!=null)
 		{
@@ -64,12 +67,13 @@ public class Update_Product {
 		myStage.close();
 
     }
-	public void setWare(SuperUser mySU, Database myDB, Stage stage, Category selCat,Product p) {
+	public void setWare(SuperUser mySU, Database myDB, Stage stage, Category selCat,Product p,String pathy) {
 		this.mySU=mySU;
 		this.myDB=myDB;
 		this.myStage=stage;
 		this.Cat=selCat;
 		this.pro=p;
+		this.path=pathy;
 	}
 	public void SERIALALL() {
 		try 

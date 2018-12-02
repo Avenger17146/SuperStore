@@ -1,9 +1,11 @@
 package GUI;
 
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Collections;
 
 import Backend.Category;
+import Backend.Customer;
 import Backend.Product;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -26,6 +28,12 @@ public class Browse_Product {
 	
 	@FXML
 	private ChoiceBox<String> Product;
+
+	private int mytype;
+
+	private Customer myCus;
+
+	private Stage myStage;
     
     @FXML
     public void Browse()
@@ -55,7 +63,7 @@ public class Browse_Product {
 		    stage.show();
 		    
 		    if(selCat!=null)
-		    log.setCat(selCat);
+		    log.setCat(selCat,myCus,stage);
 
         }
         catch (Exception f)
@@ -65,7 +73,7 @@ public class Browse_Product {
     }
     @FXML
     public void Select_Product()
-    {
+    {    	
     	Product selPro=null;
     	try
         {
@@ -75,27 +83,40 @@ public class Browse_Product {
         }catch(Exception e) 
     	{System.out.println("Nothing");}
     	
-    	if(selPro!=null)
-        try {	
-    		FXMLLoader loader= new FXMLLoader(getClass().getResource("Product_Display.fxml"));
-    		Parent root = loader.load();
-        
-    		Product_Display log=loader.getController();
-    		Stage stage = new Stage();
-    		stage.setScene(new Scene(root,600,600));
-		    stage.setTitle("SuperStore");
-		    stage.show();
-		    
-		    log.setSTAGE(stage);
-		    
-		    if(selPro!=null)
-		    log.setPro(selPro);
+    	
+    	
+    	if(selPro!=null) {
+    		
+    		if(myCus==null) 
+    		{
 
-        }
-        catch (Exception f)
-        {
-            f.printStackTrace();
-        }
+		        try {	
+		    		FXMLLoader loader= new FXMLLoader(getClass().getResource("Product_Display.fxml"));
+		    		Parent root = loader.load();
+		        
+		    		Product_Display log=loader.getController();
+		    		Stage stage = new Stage();
+		    		stage.setScene(new Scene(root,600,600));
+				    stage.setTitle("SuperStore");
+				    stage.show();
+				    
+				    log.setSTAGE(stage);
+				    
+				    if(selPro!=null)
+				    log.setPro(selPro);
+		
+		        }
+		        catch (Exception f)
+		        {
+		            f.printStackTrace();
+		        }
+		      }
+    		else {
+    			myCus.addProduct(selPro, 1);
+    			myStage.close();
+    			
+    		}
+    	}
     	
     }
     
@@ -104,11 +125,13 @@ public class Browse_Product {
     	setlists(1);
     }
     
-	public void setCat(Category selCat) {
+	public void setCat(Category selCat,Customer cc,Stage stage) {
 		myCat = selCat;
 		one=new ArrayList<String>();
 		two=new ArrayList<String>();
 		setlists(0);
+		myCus=cc;
+		myStage=stage;
 	}
 	
 	private void setprelists() {	
