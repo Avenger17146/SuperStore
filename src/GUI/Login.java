@@ -143,7 +143,10 @@ public class Login {
 		    else if(CurUser==3)
 		    {
 	    		Customer_Login log=loader.getController();
-	    		log.set(new Backend.Customer());
+	    		Backend.Customer ccc=new Backend.Customer();
+	    		Thread t=new Thread(ccc);
+	    		t.start();
+	    		log.set(ccc);
 	    		Stage stage = new Stage();
 	    	    stage.setScene(new Scene(root));
 	    	    stage.setTitle("SuperStore");
