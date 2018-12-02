@@ -30,7 +30,10 @@ public class Super_User {
     		stage.setScene(new Scene(root));
 		    stage.setTitle("SuperStore");
 		    stage.show();
-    
+		    
+		    DSerial();
+		    log.setSU(SUSU);
+		    log.setSTAGE(stage);
         }
         catch (IOException f)
         {
@@ -52,7 +55,10 @@ public class Super_User {
     		stage.setScene(new Scene(root));
 		    stage.setTitle("SuperStore");
 		    stage.show();
-    
+		    DSerial();
+
+		    log.setSU(SUSU);
+		    log.setSTAGE(stage);
         }
         catch (IOException f)
         {
@@ -74,6 +80,8 @@ public class Super_User {
     		stage.setScene(new Scene(root));
 		    stage.setTitle("SuperStore");
 		    stage.show();
+		    DSerial();
+		    log.setSU(SUSU,stage);
     
         }
         catch (IOException f)
@@ -96,6 +104,10 @@ public class Super_User {
     		stage.setScene(new Scene(root));
 		    stage.setTitle("SuperStore");
 		    stage.show();
+		    
+		    DSerial();
+		    log.setSU(SUSU,stage);
+    
     
         }
         catch (IOException f)
@@ -204,6 +216,8 @@ public class Super_User {
     		Parent root = loader.load();
         
     		Super_User_Display log=loader.getController();
+		    log.setlist(SUSU);
+
     		Stage stage = new Stage();
     		stage.setScene(new Scene(root,600,600));
 		    stage.setTitle("SuperStore");
