@@ -1,7 +1,10 @@
 package GUI;
 
+import java.io.FileInputStream;
 import java.io.IOException;
+import java.io.ObjectInputStream;
 
+import Backend.SuperUser;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -10,9 +13,10 @@ import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
 
 public class Super_User {
-    Stage mystage ;
-	
-    @FXML
+    private Stage mystage ;
+	private SuperUser SUSU;
+    
+	@FXML
     public void Create_Warehouse(MouseEvent e)
     {
     	
@@ -174,7 +178,26 @@ public class Super_User {
 	public void setSTAGE(Stage stagi) {
 		mystage=stagi;
 	}
+	
+	
+	void DSerial() 
+    {
+	    try{
+	        ObjectInputStream inputStream = new ObjectInputStream(new FileInputStream("SuperUser"+".dat"));
+	        SUSU = (Backend.SuperUser)inputStream.readObject();
+			inputStream.close();
+
+	    }
+	    catch (Exception et)
+	    {
+	        System.out.println( et.getMessage());
+	
+	    }
+	    
+    }
+	
 	public void dispy() {
+		DSerial();
 		try
         {
     		FXMLLoader loader= new FXMLLoader(getClass().getResource("Super_User_Display.fxml"));

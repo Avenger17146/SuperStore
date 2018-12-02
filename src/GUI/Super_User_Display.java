@@ -23,7 +23,7 @@ import javafx.stage.Stage;
 
 public class Super_User_Display {
     
-	 ObjectInputStream inputStream ;
+	private ObjectInputStream inputStream ;
 	
 	@FXML
     private ListView<String> Warehouselist;
@@ -33,10 +33,10 @@ public class Super_User_Display {
     private WarehouseList Wlist;
     private StoreList Slist;
     
-    ArrayList<String> one;
-    ArrayList<String> two;
+    private ArrayList<String> one;
+    private ArrayList<String> two;
     
-    Stage mystage ;
+    private Stage mystage ;
     
     @FXML
     void initialize() {
@@ -69,7 +69,8 @@ public class Super_User_Display {
     	int i=Warehouselist.getSelectionModel().getSelectedIndex();
     	if(i<0)i=0;
     	Warehouse selectedW=Wlist.getWarehouses().get(i);
-    
+    	
+    	if(selectedW!=null) {
     	try
         {
     		FXMLLoader loader= new FXMLLoader(getClass().getResource("Category_GUI.fxml"));
@@ -84,12 +85,12 @@ public class Super_User_Display {
 		    log.setWare(selectedW);
     
         }
-        catch (IOException f)
+        catch (Exception f)
         {
             f.printStackTrace();
         }
     	    	
-    	
+    	}
     }
     	
 	@FXML
@@ -100,7 +101,7 @@ public class Super_User_Display {
     	if(j<0)j=0;
 
     	Store selectedS=Slist.getStores().get(j);	
-    	
+    	if(selectedS!=null) {
     	try
         {
     		FXMLLoader loader= new FXMLLoader(getClass().getResource("Category_GUI.fxml"));
@@ -114,10 +115,11 @@ public class Super_User_Display {
     
 		    log.setStore(selectedS);
         }
-        catch (IOException f)
+        catch (Exception f)
         {
             f.printStackTrace();
         }
+    	}
     	    	
     }	
 

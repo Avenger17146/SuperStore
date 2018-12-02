@@ -57,8 +57,10 @@ public class Login {
 			FXMLLoader loader= new FXMLLoader(getClass().getResource(array[CurUser]));
 	        Parent root = loader.load();
 	    	
-	    	if(CurUser==0  && a.equals("admin")&& b.equals("admin")) 
+	    	if(CurUser==0)
 	    	{
+	    		if(a.equals("admin")&& b.equals("admin")) 
+	    		{
 	    		Super_User log=loader.getController();
 	    		Stage stage = new Stage();
 	    	    stage.setScene(new Scene(root));
@@ -67,7 +69,11 @@ public class Login {
 	    	    
 	    	    log.setSTAGE(stage);
 	    	    log.dispy();
+	    		}
+	    		else
+		            label.setText("Wrong ID or Password! Try again");
 	    	}
+	    	
 	    	else if(CurUser==1) 
 	    	{
 	    		 try{
@@ -94,6 +100,8 @@ public class Login {
 	    	    
 	    		log.startit(WAlist.authenticate(a, b));
 	    		}
+	    		else
+		            label.setText("Wrong ID or Password! Try again");
 	    	}
 		    else if(CurUser==2  ) 
 		    {
@@ -119,6 +127,8 @@ public class Login {
 	    	    stage.show();
 	    	    
 	    		log.startit(SAlist.authenticate(a, b));}
+		    	else
+		            label.setText("Wrong ID or Password! Try again");
 			}
 		    else if(CurUser==3)
 		    {
@@ -130,8 +140,6 @@ public class Login {
 	    	    stage.show();
 		    	
 		    }
-	        else
-	            label.setText("Wrong ID or Password! Try again");
 	    	
 		}
 	    catch (Exception ex) {

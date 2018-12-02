@@ -16,6 +16,7 @@
                 <Button layoutX="134.0" layoutY="187.0" mnemonicParsing="false" onMouseClicked="#Browse" text="Browse" />
             <Label layoutX="285.0" layoutY="123.0" text="Product" />
             <ChoiceBox fx:id="Product" layoutX="349.0" layoutY="119.0" prefWidth="150.0" />
+            <Button layoutX="447.0" layoutY="293.0" mnemonicParsing="false" onMouseClicked="#sort" text="Sort" />
             </children></AnchorPane>
     </content>
 </TitledPane>
