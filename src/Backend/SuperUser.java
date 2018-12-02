@@ -223,5 +223,26 @@ public class SuperUser implements Serializable {
         s.CreateStore("Dhruv&bros.","8923");
         s.CreateWarehouseAdmin("RAwal","Jaybalvin");
         s.CreateWarehouse("Punjabi&co", "240");
+        s.getSlist().getStores().get(0).setLinked(s.getWlist().getWarehouses().get(0));
+        Store a =  s.getSlist().getStores().get(0);
+        try {
+            System.out.println("here");
+            s.getSlist().getStores().get(0).getDb().insert("phone>op", new Product("oneplus", 2, 34000, 8932, 5, 6, 6));
+            System.out.println("here");
+            s.getSlist().getStores().get(0).getDb().insert("electronics>home>alexa", new Product("alexa", 2, 34000, 1000, 5, 6, 6));
+            s.SAlist.getStoreAdmins().get(0).setStore(s.getSlist().getStores().get(0));
+            s.WAlist.getWarehouseAdmins().get(0).setWarehouse(s.Wlist.getWarehouses().get(0));
+            s.Wlist.getWarehouses().get(0).getDb().insert("heelo>to>the>oher",new Product("side",23,23,2323,23,23,32));
+            s.Wlist.getWarehouses().get(0).getDb().insert("blh",new Product("scjnzn",23,23,2878,23,23,32));
+            Product dk = s.getSlist().getStores().get(0).getDb().search(8932);
+            System.out.println(dk.getName());
+            s.SerialiseList();
+
+        }
+        catch (Exception e)
+        {
+            e.printStackTrace();
+            System.out.println(e.getMessage());
+        }
     }
 }

@@ -46,6 +46,7 @@ public class Warehouse implements Serializable {
     public Warehouse(String name, String ID) {
         Name = name;
         this.ID = ID;
+        db = new Database();
     }
     public String toString()
     {

@@ -11,6 +11,7 @@ public class Store implements Serializable {
     public Store(String name, String ID) {
         Name = name;
         this.ID = ID;
+        db = new Database();
     }
 
     public String getName() {

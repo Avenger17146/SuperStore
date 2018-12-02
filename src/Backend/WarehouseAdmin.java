@@ -56,7 +56,7 @@ public class WarehouseAdmin implements Serializable{
         ObjectInputStream inputStream = null;
 
         try{
-            inputStream = new ObjectInputStream(new FileInputStream("Warehoues"+".dat"));
+            inputStream = new ObjectInputStream(new FileInputStream("Warehouses"+".dat"));
             Wlist = (WarehouseList) inputStream.readObject();
         }
         catch (Exception e)

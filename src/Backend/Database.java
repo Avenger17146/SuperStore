@@ -55,9 +55,9 @@ public class Database implements Serializable {
         else
         {
 
-            p.setPath(cat);
-            temp.getPlist().add(p);
-            Products.add(p);
+            pro.setPath(cat);
+            temp.getPlist().add(pro);
+            Products.add(pro);
         }
     }
 
