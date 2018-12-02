@@ -124,17 +124,25 @@ public class SuperUser implements Serializable {
     }
 
     public SuperUser() {
-       /* try
+        try
         {
             DeserialiseList();
         }
         catch (Exception e)
         {
             System.out.println(e.getMessage());
-        }*/
+        }
     }
 
-    public void CreateStoreAdmin(String a, String b, Store s) {
+    public Boolean CreateStoreAdmin(String a, String b, Store s) {
+        for (int i = 0 ; i <= SAlist.getStoreAdmins().size() -1 ; i++)
+        {
+            if (SAlist.getStoreAdmins().get(i).getID().equals(a))
+            {
+                System.out.println("ID alreday exists");
+                return false;
+            }
+        }
         StoreAdmin admin = new StoreAdmin(a, b, s);
         SAlist.getStoreAdmins().add(admin);
         try {
@@ -142,10 +150,18 @@ public class SuperUser implements Serializable {
         } catch (Exception e) {
             System.out.println(e.getMessage());
         }
-
+        return true;
     }
 
-    public void CreateWarehouseAdmin(String a, String b, Warehouse w) {
+    public Boolean CreateWarehouseAdmin(String a, String b, Warehouse w) {
+        for (int i = 0 ; i <= WAlist.getWarehouseAdmins().size() -1 ; i++)
+        {
+            if (WAlist.getWarehouseAdmins().get(i).getID().equals(a))
+            {
+                System.out.println("ID alreday exists");
+                return false;
+            }
+        }
         WarehouseAdmin admin = new WarehouseAdmin(a, b, w);
         WAlist.getWarehouseAdmins().add(admin);
         try {
@@ -153,6 +169,7 @@ public class SuperUser implements Serializable {
         } catch (Exception e) {
             System.out.println(e.getMessage());
         }
+        return true;
     }
 
     public void Link(Warehouse a, Store b) {
@@ -194,13 +211,13 @@ public class SuperUser implements Serializable {
         //Store a =  s.getSlist().getStores().get(0);
         try {
             System.out.println("here");
-            s.getSlist().getStores().get(0).getDb().insert("phone>op", new Product("oneplus", 2, 34000, 8932, 5, 6, 6));
+            s.getSlist().getStores().get(0).getDb().insert("phone>op", new Product("oneplus", 2, 34000,  5, 6, 6));
             System.out.println("here");
-            s.getSlist().getStores().get(0).getDb().insert("electronics>home>alexa", new Product("alexa", 2, 34000, 1000, 5, 6, 6));
+            s.getSlist().getStores().get(0).getDb().insert("electronics>home>alexa", new Product("alexa", 2, 34000, 5, 6, 6));
             s.SAlist.getStoreAdmins().get(0).setStore(s.getSlist().getStores().get(0));
             s.WAlist.getWarehouseAdmins().get(0).setWarehouse(s.Wlist.getWarehouses().get(0));
-            s.Wlist.getWarehouses().get(0).getDb().insert("heelo>to>the>oher",new Product("side",23,23,2323,23,23,32));
-            s.Wlist.getWarehouses().get(0).getDb().insert("blh",new Product("scjnzn",23,23,2878,23,23,32));
+            s.Wlist.getWarehouses().get(0).getDb().insert("heelo>to>the>oher",new Product("side",23,23,23,23,32));
+            s.Wlist.getWarehouses().get(0).getDb().insert("blh",new Product("scjnzn",23,23,23,23,32));
             Product dk = s.getSlist().getStores().get(0).getDb().search(8932);
             System.out.println(dk.getName());
             s.SerialiseList();

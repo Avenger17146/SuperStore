@@ -15,7 +15,8 @@ public class Product implements Serializable {
     }
 
     private double eoq;
-        protected int Quantity, Price, ID,H, D, K;
+        protected int Quantity, Price,H, D, K;
+        private String ID;
 
 
 
@@ -31,11 +32,11 @@ public class Product implements Serializable {
         Name = name;
     }
 
-    public int getID() {
+    public String getID() {
         return ID;
     }
 
-    public void setID(int ID) {
+    public void setID(String ID) {
         this.ID = ID;
     }
 
@@ -51,8 +52,8 @@ public class Product implements Serializable {
         return D;
     }
 
-    public void setD(int d) {
-        D = d;
+    public void setD(String d) {
+        ID = d;
     }
 
     public int getK() {
@@ -63,12 +64,12 @@ public class Product implements Serializable {
         K = k;
     }
 
-    public Product(String name, int quantity, int price, int ID, int h, int d, int k) {
+    public Product(String name, int quantity, int price,  int h, int d, int k) {
         Name = name;
        // this.path = path;
         Quantity = quantity;
         Price = price;
-        this.ID = ID;
+        this.ID = name + quantity + price + h + d + k;
         H = h;
         D = d;
         K = k;
