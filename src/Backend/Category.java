@@ -3,7 +3,7 @@ package Backend;
 import java.io.Serializable;
 import java.util.ArrayList;
 
-public class Category implements Serializable {
+public class Category implements Serializable, Comparable<Category> {
     protected String Name;
     protected ArrayList<Product> Plist;
     protected ArrayList<Category> Clist;
@@ -43,15 +43,7 @@ public class Category implements Serializable {
         return Clist;
     }
 
-    public Boolean eqauls(Category a)
-    {
-        if ( Name.equalsIgnoreCase(a.getName()))
-        {
-            return true;
-        }
-        else
-            return false;
-    }
+
 
     public Category find(String a)
     {
@@ -74,5 +66,15 @@ public class Category implements Serializable {
             }
         }
         return null;
+    }
+    public int compareTo(Category a)
+    {
+        return a.getName().compareTo(this.Name);
+    }
+
+    public Boolean eqauls(Category a)
+    {
+        return (a.getName().equalsIgnoreCase(Name));
+
     }
 }

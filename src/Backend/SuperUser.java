@@ -237,6 +237,21 @@ public class SuperUser implements Serializable {
             Product dk = s.getSlist().getStores().get(0).getDb().search(8932);
             System.out.println(dk.getName());
             s.SerialiseList();
+            ObjectOutputStream oStream = null;
+
+            try {
+                oStream = new ObjectOutputStream(new FileOutputStream("SuperUser"+".dat"));
+                oStream.writeObject(s);
+                System.out.println("File saved");
+            }
+            catch (Exception e)
+            {
+                System.out.println(e.getMessage());
+            }
+            finally {
+                System.out.println("donr");
+                oStream.close();
+            }
 
         }
         catch (Exception e)
