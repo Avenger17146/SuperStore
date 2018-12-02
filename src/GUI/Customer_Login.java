@@ -19,11 +19,11 @@ public class Customer_Login {
         customer.addFunds(Integer.parseInt(Estimated_Budget.getText()));
         try
         {
-            FXMLLoader loader= new FXMLLoader(getClass().getResource("Custome_GUI.fxml"));
+            FXMLLoader loader= new FXMLLoader(getClass().getResource("Customer_GUI.fxml"));
             Parent root = loader.load();
 
             Customer_GUI log=loader.getController();
-            //log.set(customer);
+            log.set(customer);
             Stage stage = new Stage();
             stage.setScene(new Scene(root,600,600));
             stage.setTitle("SuperStore");

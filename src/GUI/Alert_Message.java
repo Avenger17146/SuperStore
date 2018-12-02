@@ -18,5 +18,9 @@ public class Alert_Message {
     {
 
     }
+    public void set(Boolean a)
+    {
+
+    }
 
 }

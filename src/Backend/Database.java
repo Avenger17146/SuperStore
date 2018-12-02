@@ -105,6 +105,11 @@ public class Database implements Serializable {
         }
     }
 
+    public void deleteCategory(Category a)
+    {
+
+    }
+
     public int getRevenue() {
         return revenue;
     }
@@ -152,7 +157,7 @@ public class Database implements Serializable {
             return;
         }
 
-        p = pro;
+        p = n;
     }
 
     public int sale (Product pro, int qty, int funds) throws UnavailableStockException

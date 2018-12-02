@@ -117,15 +117,18 @@ public class Customer implements Serializable {
         }
     }
 
-    public Boolean checkOut()
+    public int checkOut()
     {
+        int flag  = 0;
         for ( int i = 0; i<= cart.size()-1; i++ )
         {
             if ( qty.get(i)> cart.get(i).getQuantity())
             {
-                return  false;
+                return  -1;
             }
-
+            funds  = funds - cart.get(i).getPrice()*qty.get(i);
+            if ( funds < 0)
+                flag = 1;
         }
         for ( int i = 0; i<= cart.size()-1; i++ )
         {
@@ -134,10 +137,14 @@ public class Customer implements Serializable {
             {
                 for ( int j = 0 ; j<= i; j++)
                     cart.get(i).setQuantity(qty.get(i)+ cart.get(i).getQuantity());
-                return false;
+                return -1;
             }
         }
-        return true;
+        for ( int i = 0; i<= cart.size()-1; i++)
+            cart.remove(0);
+        if ( flag ==  1)
+            return 0;
+        return 1;
     }
 
 
