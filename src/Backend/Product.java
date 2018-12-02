@@ -1,7 +1,9 @@
 package Backend;
 
 import java.io.Serializable;
-
+/**
+ *This class defines the product
+ */
 public class Product implements Serializable {
 
         protected String Name, path;
@@ -102,7 +104,9 @@ public class Product implements Serializable {
             else
                 return false;
         }
-
+    /**
+     *for calculating EOQ
+     */
         public void calc()
         {
             eoq = Math.sqrt(2*D*K/H);

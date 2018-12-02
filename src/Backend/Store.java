@@ -1,7 +1,9 @@
 package Backend;
 
 import java.io.Serializable;
-
+/**
+ *Class that defines the Store
+ */
 public class Store implements Serializable {
     private String Name;
     private String ID;
@@ -41,7 +43,9 @@ public class Store implements Serializable {
     public Warehouse getLinked() {
         return linked;
     }
-
+    /**
+     *link warehouse
+     */
     public void setLinked(Warehouse linked) {
         this.linked = linked;
     }

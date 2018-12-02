@@ -2,7 +2,9 @@ package Backend;
 import java.io.Serializable;
 import java.util.ArrayList;
 
-
+/**
+ *each customer has a cart of products
+ */
 public class Cart implements Serializable {
     private Database dbs;
     private int funds;
@@ -49,7 +51,7 @@ public class Cart implements Serializable {
         {
             try
             {
-                funds = dbs.sale(plist.get(i),qlist.get(i),funds);
+                //funds = dbs.sale(plist.get(i),qlist.get(i),funds);
                 plist.remove(i);
                 if ( funds < 0)
                     throw (new InsufficientFundsException());

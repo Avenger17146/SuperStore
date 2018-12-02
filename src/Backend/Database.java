@@ -3,12 +3,16 @@ package Backend;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Scanner;
-
+/**
+ *Database has methods for various product related operations
+ */
 public class Database implements Serializable {
     protected ArrayList<Category> Categories;
     protected ArrayList<Product> Products;
     protected int revenue;
-
+    /**
+     *constructor
+     */
     public Database()
     {
         Categories = new ArrayList<Category>();
@@ -19,6 +23,12 @@ public class Database implements Serializable {
     public ArrayList<Product> getPro(){return Products;}
     public ArrayList<Category> getCat(){return  Categories;}
 
+    /**
+     *
+     *
+     * For finding categories in the database
+     * @return
+     */
     public Category find(String a)
     {
         for ( int j = 0; j<= Categories.size()-1;j++ )
@@ -31,6 +41,11 @@ public class Database implements Serializable {
         return null;
     }
 
+    /**
+     *
+     * function for inserting product
+     * @throws ProductAlredayExistsException
+     */
     public void insert(String cat, Product pro) throws ProductAlredayExistsException
     {
         String[] cats = cat.split(">");
@@ -65,6 +80,10 @@ public class Database implements Serializable {
         }
     }
 
+    /**
+     * for deleting products
+     * @throws InvalidPathException
+     */
     public void delete(Product pro) throws InvalidPathException
     {
         String del = pro.getPath();
@@ -110,10 +129,16 @@ public class Database implements Serializable {
 
     }
 
+
     public int getRevenue() {
         return revenue;
     }
 
+    /**
+     * for seraching a product
+     * @return
+     * @throws ProductNotFoundException
+     */
     public Product search(String id) throws ProductNotFoundException
     {
 
@@ -145,6 +170,9 @@ public class Database implements Serializable {
         throw(new ProductNotFoundException());
     }
 
+    /**
+     * updating a product
+     */
     public void modify(Product pro, Product n)
     {
         Product p;
@@ -160,31 +188,6 @@ public class Database implements Serializable {
         p = n;
     }
 
-    public int sale (Product pro, int qty, int funds) throws UnavailableStockException
-    {
-        Product p;
-        try {
-            p = search(pro.getID());
-        }
-        catch (Exception e)
-        {
-            System.out.println(e.getMessage() +" : "+ pro);
-            return funds;
-        }
-        System.out.println(p.getQuantity() + " " + qty);
-        if ( p.getQuantity() < qty)
-            throw (new UnavailableStockException());
-        funds= funds - p.getPrice()*qty;
-
-        if ( funds >= 0)
-        {
-            p.setQuantity(p.getQuantity()-qty);
-            revenue+= p.getPrice()*qty;
-            System.out.println(revenue);
-        }
-
-        return funds;
-    }
 
 }
 

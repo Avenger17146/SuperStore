@@ -8,7 +8,9 @@ import javafx.stage.Stage;
 
 import java.io.*;
 import java.util.ArrayList;
-
+/**
+ *class that defines the methods and functions of superuser
+ */
 public class SuperUser implements Serializable {
     public static void setID(String ID) {
         SuperUser.ID = ID;
@@ -40,7 +42,9 @@ public class SuperUser implements Serializable {
     private StoreList Slist = new StoreList();
     private WarehouseAdminList WAlist = new WarehouseAdminList();
     private StoreAdminList SAlist = new StoreAdminList();
-
+    /**
+     *for serialising all the files
+     */
     public void SerialiseList() throws IOException {
         ObjectOutputStream oStream = null;
 
@@ -81,7 +85,9 @@ public class SuperUser implements Serializable {
             oStream.close();
         }
     }
-
+    /**
+     *for deserialising all the files
+     */
     public void DeserialiseList() throws IOException {
         ObjectInputStream inputStream = null;
 
@@ -157,7 +163,9 @@ public class SuperUser implements Serializable {
             System.out.println(e.getMessage());
         }
     }
-
+    /**
+     *for creating store admin
+     */
     public Boolean CreateStoreAdmin(String a, String b, Store s) {
         for (int i = 0 ; i <= SAlist.getStoreAdmins().size() -1 ; i++)
         {
@@ -176,7 +184,9 @@ public class SuperUser implements Serializable {
         }
         return true;
     }
-
+    /**
+     *for creating warehouse admin
+     */
     public Boolean CreateWarehouseAdmin(String a, String b, Warehouse w) {
         for (int i = 0 ; i <= WAlist.getWarehouseAdmins().size() -1 ; i++)
         {
@@ -209,7 +219,9 @@ public class SuperUser implements Serializable {
             System.out.println(e.getMessage());
         }
     }
-
+    /**
+     *for creating store
+     */
     public void CreateStore(String a, String id) {
         Store w = new Store(a, id);
         Slist.getStores().add(w);
@@ -220,7 +232,9 @@ public class SuperUser implements Serializable {
         }
     }
 
-
+    /**
+     *creating files for test run
+     */
     public static void main(String[] args)
     {
         SuperUser s = new SuperUser();
@@ -230,20 +244,31 @@ public class SuperUser implements Serializable {
         s.CreateStoreAdmin("Dhruv","8923",a);
         s.CreateWarehouse("Punjabi&co", "240");
         s.CreateWarehouseAdmin("RAwal","Jaybalvin",s.getWlist().getWarehouses().get(0));
+        s.CreateWarehouse("daBset", "249");
+        s.CreateWarehouseAdmin("wa1","qwerty",s.getWlist().getWarehouses().get(1));
+        s.CreateStore("daBest","89");
+        a  = s.getSlist().getStores().get(1);
+        s.CreateStoreAdmin("Dhruv","8923",a);
+
 
         s.getSlist().getStores().get(0).setLinked(s.getWlist().getWarehouses().get(0));
         //Store a =  s.getSlist().getStores().get(0);
         try {
             System.out.println("here");
             s.getSlist().getStores().get(0).getDb().insert("phone>op", new Product("oneplus", "2", "34000",  "5", "6", "6"));
-            System.out.println("here");
             s.getSlist().getStores().get(0).getDb().insert("electronics>home>alexa", new Product("alexa", "2", "34000", "5", "6", "6"));
             s.SAlist.getStoreAdmins().get(0).setStore(s.getSlist().getStores().get(0));
+            s.getSlist().getStores().get(1).getDb().insert("phone>op", new Product("huwaie", "2", "34000",  "5", "6", "6"));
+            s.getSlist().getStores().get(1).getDb().insert("electronics>home>assistant", new Product("alexa", "2", "34000", "5", "6", "6"));
+
             s.WAlist.getWarehouseAdmins().get(0).setWarehouse(s.Wlist.getWarehouses().get(0));
-            s.Wlist.getWarehouses().get(0).getDb().insert("heelo>to>the>oher",new Product("side","23","23","23","23","32"));
-            s.Wlist.getWarehouses().get(0).getDb().insert("blh",new Product("scjnzn","23","23","23","23","32"));
+            s.Wlist.getWarehouses().get(0).getDb().insert("hello>to>the>other",new Product("side","23","23","23","23","32"));
+            s.Wlist.getWarehouses().get(0).getDb().insert("screens",new Product("screen","23","23","23","23","32"));
             /*Product dk = s.getSlist().getStores().get(0).getDb().search(8932);
             System.out.println(dk.getName());*/
+            s.Wlist.getWarehouses().get(1).getDb().insert("ca>u>hear>me",new Product("alone","23","23","23","23","32"));
+            s.Wlist.getWarehouses().get(1).getDb().insert("football>cosco",new Product("big_football","23","23","23","23","32"));
+
             s.SerialiseList();
             ObjectOutputStream oStream = null;
 

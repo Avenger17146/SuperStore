@@ -3,7 +3,9 @@ package Backend;
 import java.io.*;
 import java.util.ArrayList;
 import java.util.Scanner;
-
+/**
+ *defines the functions of a customer
+ */
 public class Customer implements Serializable {
     private Cart Plist;
     private String name;
@@ -63,7 +65,9 @@ public class Customer implements Serializable {
 
     private ArrayList<Product> cart = new ArrayList<Product>();
 
-
+    /**
+     *constructor
+     */
     public Customer()
     {
         try{
@@ -74,7 +78,9 @@ public class Customer implements Serializable {
             e.printStackTrace();
         }
     }
-
+    /**
+     *deserialisning store list
+     */
     public void Deserial()
     {
         ObjectInputStream inputStream = null;
@@ -92,6 +98,9 @@ public class Customer implements Serializable {
 
         }
     }
+    /**
+     *for bonus implementation
+     */
     public void addFunds(int fund)
     {
         funds = fund;
@@ -107,7 +116,9 @@ public class Customer implements Serializable {
         }
         return false;
     }
-
+    /**
+     *removing product from cart
+     */
     public void removeProduct(Product pro)
     {
         for ( int i = 0 ; i<= cart.size()-1; i++)
@@ -116,7 +127,9 @@ public class Customer implements Serializable {
                 cart.remove(i);
         }
     }
-
+    /**
+     *checking out cart
+     */
     public int checkOut()
     {
         int flag  = 0;

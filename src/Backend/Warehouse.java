@@ -4,7 +4,9 @@ package Backend;
 
 import java.io.Serializable;
 import java.util.ArrayList;
-
+/**
+ *Class that defines the warehouse
+ */
 public class Warehouse implements Serializable {
     private Database db;
     private String Name;
@@ -42,7 +44,9 @@ public class Warehouse implements Serializable {
     public void setMessages(ArrayList<Message> messages) {
         this.messages = messages;
     }
-
+    /**
+     *constructor
+     */
     public Warehouse(String name, String ID) {
         Name = name;
         this.ID = ID;

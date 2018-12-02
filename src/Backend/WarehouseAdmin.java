@@ -1,7 +1,9 @@
 package Backend;
 
 import java.io.*;
-
+/**
+ *Class that defines the warehouse administrator
+ */
 public class WarehouseAdmin implements Serializable{
     private Warehouse warehouse;
     private String ID;
@@ -39,7 +41,9 @@ public class WarehouseAdmin implements Serializable{
     public void setWlist(WarehouseList wlist) {
         Wlist = wlist;
     }
-
+    /**
+     *constructor
+     */
     public WarehouseAdmin(String ID, String password, Warehouse W) {
         this.ID = ID;
         Password = password;
@@ -52,6 +56,9 @@ public class WarehouseAdmin implements Serializable{
             System.out.println(e.getMessage());
         }
     }
+    /**
+     *reading from file the list of warehouse admins
+     */
     public void DeserialiseList() throws IOException
     {
         ObjectInputStream inputStream = null;

@@ -2,7 +2,9 @@ package Backend;
 
 import java.io.Serializable;
 import java.util.ArrayList;
-
+/**
+ *conatins list of all stores
+ */
 public class StoreList implements Serializable {
     private ArrayList<Store> stores;
     public StoreList()

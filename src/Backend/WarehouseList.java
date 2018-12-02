@@ -2,7 +2,9 @@ package Backend;
 
 import java.io.Serializable;
 import java.util.ArrayList;
-
+/**
+ *a list of all the warehouses
+ */
 public class WarehouseList implements Serializable {
     private ArrayList<Warehouse> warehouses;
     public WarehouseList()

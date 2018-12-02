@@ -2,7 +2,9 @@ package Backend;
 
 import java.io.Serializable;
 import java.util.ArrayList;
-
+/**
+ *categories in a database with inbuilt search
+ */
 public class Category implements Serializable, Comparable<Category> {
     protected String Name;
     protected ArrayList<Product> Plist;
@@ -11,6 +13,9 @@ public class Category implements Serializable, Comparable<Category> {
     public ArrayList<Product> getpList(){return Plist;}
     public ArrayList<Category> getcList() {return Clist; }
 
+    /**
+     *constructor
+     */
     public Category( String a, Category b )
     {
         Name = a;
@@ -19,14 +24,10 @@ public class Category implements Serializable, Comparable<Category> {
         Clist.add(b);
     }
 
-    public Category( String a, Product b )
-    {
-        Name = a;
-        Plist = new ArrayList<Product>();
-        Clist = new ArrayList<Category>();
-        Plist.add(b);
-    }
 
+    /**
+     *overloading constructor
+     */
     public Category(String a)
     {
         Name = a;
@@ -47,7 +48,9 @@ public class Category implements Serializable, Comparable<Category> {
     }
 
 
-
+    /**
+     *finding a category
+     */
     public Category find(String a)
     {
         for ( int j = 0; j<= Clist.size()-1;j++ )
@@ -59,6 +62,9 @@ public class Category implements Serializable, Comparable<Category> {
         }
         return null;
     }
+    /**
+     *finding product
+     */
     public Product findp(String a)
     {
         for ( int j = 0; j<= Plist.size()-1;j++ )
