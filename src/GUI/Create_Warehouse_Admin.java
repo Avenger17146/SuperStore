@@ -37,7 +37,7 @@ public class Create_Warehouse_Admin {
 		int w=Warehouse_List.getSelectionModel().getSelectedIndex();
 		Warehouse ware= Wlist.getWarehouses().get(w);
 		
-		//mySU.CreateWarehouseAdmin(n,p,ware);
+		mySU.CreateWarehouseAdmin(n,p,ware);
 		SERIALALL();
 		myStage.close();
     }

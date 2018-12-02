@@ -17,107 +17,82 @@ public class SuperUser implements Serializable {
     private WarehouseAdminList WAlist = new WarehouseAdminList();
     private StoreAdminList SAlist = new StoreAdminList();
 
-    public void SerialiseList() throws IOException
-    {
+    public void SerialiseList() throws IOException {
         ObjectOutputStream oStream = null;
 
         try {
-            oStream = new ObjectOutputStream(new FileOutputStream("Warehouses"+".dat"));
+            oStream = new ObjectOutputStream(new FileOutputStream("Warehouses" + ".dat"));
             oStream.writeObject(Wlist);
             System.out.println("File saved");
-        }
-        catch (Exception e)
-        {
+        } catch (Exception e) {
             System.out.println(e.getMessage());
-        }
-        finally {
+        } finally {
             oStream.close();
         }
         try {
-            oStream = new ObjectOutputStream(new FileOutputStream("Stores"+".dat"));
+            oStream = new ObjectOutputStream(new FileOutputStream("Stores" + ".dat"));
             oStream.writeObject(Slist);
             System.out.println("File saved");
-        }
-        catch (Exception e)
-        {
+        } catch (Exception e) {
             System.out.println(e.getMessage());
-        }
-        finally {
+        } finally {
             oStream.close();
         }
         try {
-            oStream = new ObjectOutputStream(new FileOutputStream("WarehouseAdminList"+".dat"));
+            oStream = new ObjectOutputStream(new FileOutputStream("WarehouseAdminList" + ".dat"));
             oStream.writeObject(WAlist);
             System.out.println("File saved");
-        }
-        catch (Exception e)
-        {
+        } catch (Exception e) {
             System.out.println(e.getMessage());
-        }
-        finally {
+        } finally {
             oStream.close();
         }
         try {
-            oStream = new ObjectOutputStream(new FileOutputStream("StoreAdminList"+".dat"));
+            oStream = new ObjectOutputStream(new FileOutputStream("StoreAdminList" + ".dat"));
             oStream.writeObject(SAlist);
             System.out.println("File saved");
-        }
-        catch (Exception e)
-        {
+        } catch (Exception e) {
             System.out.println(e.getMessage());
-        }
-        finally {
+        } finally {
             oStream.close();
         }
     }
-    public void DeserialiseList() throws IOException
-    {
+
+    public void DeserialiseList() throws IOException {
         ObjectInputStream inputStream = null;
 
-        try{
-            inputStream = new ObjectInputStream(new FileInputStream("Warehouses"+".dat"));
+        try {
+            inputStream = new ObjectInputStream(new FileInputStream("Warehouses" + ".dat"));
             Wlist = (WarehouseList) inputStream.readObject();
-        }
-        catch (Exception e)
-        {
+        } catch (Exception e) {
             System.out.println(e.getMessage());
-        }
-        finally {
+        } finally {
             inputStream.close();
         }
-        try{
-            inputStream = new ObjectInputStream(new FileInputStream("Stores"+".dat"));
+        try {
+            inputStream = new ObjectInputStream(new FileInputStream("Stores" + ".dat"));
             Slist = (StoreList) inputStream.readObject();
-        }
-        catch (Exception e)
-        {
+        } catch (Exception e) {
             System.out.println(e.getMessage());
-        }
-        finally {
+        } finally {
             inputStream.close();
         }
 
-        try{
-            inputStream = new ObjectInputStream(new FileInputStream("WarehouseAdminList"+".dat"));
+        try {
+            inputStream = new ObjectInputStream(new FileInputStream("WarehouseAdminList" + ".dat"));
             WAlist = (WarehouseAdminList) inputStream.readObject();
-        }
-        catch (Exception e)
-        {
+        } catch (Exception e) {
             System.out.println(e.getMessage());
-        }
-        finally {
+        } finally {
             inputStream.close();
         }
 
-        try{
-            inputStream = new ObjectInputStream(new FileInputStream("StoreAdminList"+".dat"));
+        try {
+            inputStream = new ObjectInputStream(new FileInputStream("StoreAdminList" + ".dat"));
             SAlist = (StoreAdminList) inputStream.readObject();
-        }
-        catch (Exception e)
-        {
+        } catch (Exception e) {
             System.out.println(e.getMessage());
-        }
-        finally {
+        } finally {
             inputStream.close();
         }
 
@@ -148,8 +123,7 @@ public class SuperUser implements Serializable {
         Slist = slist;
     }
 
-    public SuperUser()
-    {
+    public SuperUser() {
        /* try
         {
             DeserialiseList();
@@ -160,63 +134,53 @@ public class SuperUser implements Serializable {
         }*/
     }
 
-    public void CreateStoreAdmin(String a, String b)
-    {
-        StoreAdmin admin = new StoreAdmin(a,b);
+    public void CreateStoreAdmin(String a, String b, Store s) {
+        StoreAdmin admin = new StoreAdmin(a, b, s);
         SAlist.getStoreAdmins().add(admin);
-        try{
+        try {
             SerialiseList();
-        }
-        catch (Exception e)
-        {
+        } catch (Exception e) {
             System.out.println(e.getMessage());
         }
 
     }
 
-    public void CreateWarehouseAdmin(String a, String b)
-    {
-        WarehouseAdmin admin = new WarehouseAdmin(a,b);
+    public void CreateWarehouseAdmin(String a, String b, Warehouse w) {
+        WarehouseAdmin admin = new WarehouseAdmin(a, b, w);
         WAlist.getWarehouseAdmins().add(admin);
-        try{
+        try {
             SerialiseList();
-        }
-        catch (Exception e)
-        {
+        } catch (Exception e) {
             System.out.println(e.getMessage());
         }
     }
-    public void Link(Warehouse a, Store b)
-    {
+
+    public void Link(Warehouse a, Store b) {
         b.setLinked(a);
     }
 
-    public void CreateWarehouse(String a, String id)
-    {
-        Warehouse w = new Warehouse(a,id);
+    public void CreateWarehouse(String a, String id) {
+        Warehouse w = new Warehouse(a, id);
         Wlist.getWarehouses().add(w);
-        try{
+        try {
             SerialiseList();
-        }
-        catch (Exception e)
-        {
-            System.out.println(e.getMessage());
-        }
-    }
-    public void CreateStore(String a, String id)
-    {
-        Store w = new Store(a,id);
-        Slist.getStores().add(w);
-        try{
-            SerialiseList();
-        }
-        catch (Exception e)
-        {
+        } catch (Exception e) {
             System.out.println(e.getMessage());
         }
     }
 
-    public static void main(String[] args)
+    public void CreateStore(String a, String id) {
+        Store w = new Store(a, id);
+        Slist.getStores().add(w);
+        try {
+            SerialiseList();
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+        }
+    }
+
+}
+   /* public static void main(String[] args)
     {
         SuperUser s = new SuperUser();
         s.CreateStoreAdmin("Dhruv","8923");
@@ -261,3 +225,4 @@ public class SuperUser implements Serializable {
         }
     }
 }
+*/
