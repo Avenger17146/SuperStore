@@ -6,7 +6,7 @@ import java.util.Scanner;
 /**
  *defines the functions of a customer
  */
-public class Customer implements Serializable {
+public class Customer implements Serializable,Runnable {
     private Cart Plist;
     private String name;
     private int funds;
@@ -159,6 +159,17 @@ public class Customer implements Serializable {
             return 0;
         return 1;
     }
+    @Override
+	public void run() {
+    	// TODO Auto-generated method stub
+    	try{
+            Deserial();
+        }
+        catch(Exception e)
+        {
+            e.printStackTrace();
+        }
+	}
 
 
 
