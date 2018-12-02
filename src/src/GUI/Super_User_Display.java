@@ -67,8 +67,8 @@ public class Super_User_Display {
     public void BrowseW(MouseEvent e)
     {
     	int i=Warehouselist.getSelectionModel().getSelectedIndex();
-    	if(i<0)i=0;
-    	Warehouse selectedW=Wlist.getWarehouses().get(i);
+    	
+    		Warehouse selectedW=Wlist.getWarehouses().get(i);
     
     	try
         {
@@ -95,10 +95,8 @@ public class Super_User_Display {
 	@FXML
     public void BrowseS(MouseEvent e)
     {
-
+    	
     	int j=Storelist.getSelectionModel().getSelectedIndex();
-    	if(j<0)j=0;
-
     	Store selectedS=Slist.getStores().get(j);	
     	
     	try

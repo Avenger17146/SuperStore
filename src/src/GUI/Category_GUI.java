@@ -17,7 +17,7 @@ public class Category_GUI {
 	@FXML
     public void Sort_Items()
     {
-		
+
     }
     @FXML
     public void Browse()
