@@ -10,6 +10,30 @@ import java.io.*;
 import java.util.ArrayList;
 
 public class SuperUser implements Serializable {
+    public static void setID(String ID) {
+        SuperUser.ID = ID;
+    }
+
+    public static void setPassword(String password) {
+        Password = password;
+    }
+
+    public WarehouseAdminList getWAlist() {
+        return WAlist;
+    }
+
+    public void setWAlist(WarehouseAdminList WAlist) {
+        this.WAlist = WAlist;
+    }
+
+    public StoreAdminList getSAlist() {
+        return SAlist;
+    }
+
+    public void setSAlist(StoreAdminList SAlist) {
+        this.SAlist = SAlist;
+    }
+
     private static String ID = "admin";
     private static String Password = "admin";
     private WarehouseList Wlist = new WarehouseList();
