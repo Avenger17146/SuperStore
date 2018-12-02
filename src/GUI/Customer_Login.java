@@ -23,7 +23,7 @@ public class Customer_Login {
             Parent root = loader.load();
 
             Customer_GUI log=loader.getController();
-            log.set(customer);
+            //log.set(customer);
             Stage stage = new Stage();
             stage.setScene(new Scene(root,600,600));
             stage.setTitle("SuperStore");

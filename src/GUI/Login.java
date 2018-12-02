@@ -3,6 +3,7 @@ package GUI;
 import Backend.Customer;
 import Backend.StoreAdmin;
 import Backend.StoreAdminList;
+import Backend.SuperUser;
 import Backend.WarehouseAdmin;
 import Backend.WarehouseAdminList;
 import javafx.fxml.FXML;
@@ -28,6 +29,7 @@ public class Login {
     private Label label;
     @FXML
 
+    private SuperUser mySU;
     private WarehouseAdminList WAlist;
     private StoreAdminList SAlist;
     private StoreAdmin storeAdmin;
@@ -79,8 +81,9 @@ public class Login {
 	    	else if(CurUser==1) 
 	    	{
 	    		 try{
-	    	            inputStream = new ObjectInputStream(new FileInputStream("WarehouseAdminList"+".dat"));
-	    	            WAlist = (WarehouseAdminList) inputStream.readObject();
+	    	            inputStream = new ObjectInputStream(new FileInputStream("SuperUser"+".dat"));
+	    	            mySU = (SuperUser) inputStream.readObject();
+	    	            WAlist = mySU.getWAlist();
 	    	        }
 	    	        catch (Exception et)
 	    	        {
@@ -100,7 +103,8 @@ public class Login {
 	    	    stage.setTitle("SuperStore");
 	    	    stage.show();
 	    	    
-	    		log.startit(WAlist.authenticate(a, b));
+	    		log.startit(WAlist.authenticate(a, b),mySU);
+	    		log.setSTAGE(stage);
 	    		}
 	    		else
 		            label.setText("Wrong ID or Password! Try again");
@@ -109,8 +113,9 @@ public class Login {
 		    {
 		    	
 		    	try{
-		            inputStream = new ObjectInputStream(new FileInputStream("StoreAdminList"+".dat"));
-		            SAlist = (StoreAdminList) inputStream.readObject();
+		    		 inputStream = new ObjectInputStream(new FileInputStream("SuperUser"+".dat"));
+	    	         mySU = (SuperUser) inputStream.readObject();
+	    	         SAlist = mySU.getSAlist();
 		        }
 		        catch (Exception ea)
 		        {
@@ -128,7 +133,9 @@ public class Login {
 	    	    stage.setTitle("SuperStore");
 	    	    stage.show();
 	    	    
-	    		log.startit(SAlist.authenticate(a, b));}
+	    		log.startit(SAlist.authenticate(a, b),mySU);
+	    		log.setSTAGE(stage);
+		    	}
 		    	else
 		            label.setText("Wrong ID or Password! Try again");
 			}

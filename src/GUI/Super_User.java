@@ -129,6 +129,9 @@ public class Super_User {
     		stage.setScene(new Scene(root));
 		    stage.setTitle("SuperStore");
 		    stage.show();
+		    
+		    DSerial();
+		    log.setSU(SUSU,stage);
     
         }
         catch (IOException f)
@@ -137,54 +140,15 @@ public class Super_User {
         }
     }
     @FXML
-    public void Check_Store_Data()
+    public void Check_Data()
     {
-    	try
-        {
-    		FXMLLoader loader= new FXMLLoader(getClass().getResource("Check_Store_data.fxml"));
-    		Parent root = loader.load();
-        
-    		Check_Store_data log=loader.getController();
-    		Stage stage = new Stage();
-    		stage.setScene(new Scene(root));
-		    stage.setTitle("SuperStore");
-		    stage.show();
-    
-        }
-        catch (IOException f)
-        {
-            f.printStackTrace();
-        }
+    	dispy();
     }
-    @FXML
-    public void Check_Warehouse_Data()
-    {
-    	try
-        {
-    		FXMLLoader loader= new FXMLLoader(getClass().getResource("Check_warehouse_data.fxml"));
-    		Parent root = loader.load();
-        
-    		Check_warehouse_data log=loader.getController();
-    		Stage stage = new Stage();
-    		stage.setScene(new Scene(root));
-		    stage.setTitle("SuperStore");
-		    stage.show();
-    
-        }
-        catch (IOException f)
-        {
-            f.printStackTrace();
-        }
-    }
+   
     @FXML
     public void Log_Out_Super_User()
     {
     	mystage.close();
-    }
-    @FXML
-    public void Login_Another()
-    {
-    	 mystage.close();
     }
 
 	public void setSTAGE(Stage stagi) {

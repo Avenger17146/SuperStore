@@ -44,7 +44,7 @@ public class Product_Display  {
 
 	private void setLabels() {
 		Name.setText(myPro.getName());
-		ID.setText(Integer.toString(myPro.getID()));
+		ID.setText((myPro.getID()));
 		Price.setText(Integer.toString(myPro.getPrice()));
 		Quantity.setText(Integer.toString(myPro.getQuantity()));
 		D.setText(Integer.toString(myPro.getD()));
