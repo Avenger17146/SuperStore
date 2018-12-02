@@ -9,6 +9,7 @@ import java.util.List;
 
 import Backend.Store;
 import Backend.StoreList;
+import Backend.SuperUser;
 import Backend.Warehouse;
 import Backend.WarehouseList;
 import javafx.collections.FXCollections;
@@ -39,13 +40,12 @@ public class Super_User_Display {
     private Stage mystage ;
     
     @FXML
-    void initialize() {
+    void ini() {
     	
     	one=new ArrayList<String>();
         two=new ArrayList<String>();
     	
     	inputStream=null;
-    	DSerial();
     	
     	for(int i=0;i<Wlist.getWarehouses().size();i++) {
     		one.add(Wlist.getWarehouses().get(i).getName());
@@ -133,31 +133,10 @@ public class Super_User_Display {
     	mystage.close();
     }
     
-    void DSerial() 
-    {
-	    try{
-	        inputStream = new ObjectInputStream(new FileInputStream("Warehouses"+".dat"));
-	        Wlist = (Backend.WarehouseList)inputStream.readObject();
-			inputStream.close();
 
-	    }
-	    catch (Exception et)
-	    {
-	        System.out.println( et.getMessage());
-	
-	    }
-	
-	    try{
-	        inputStream = new ObjectInputStream(new FileInputStream("Stores"+".dat"));
-	        Slist = (Backend.StoreList)inputStream.readObject();
-			inputStream.close();
-
-	    }
-	    catch (Exception et)
-	    {
-	        System.out.println( et.getMessage());
-	
-	    }
-	    
-    }
+    public void setlist(SuperUser sUSU) {
+    	 Wlist = sUSU.getWlist();
+    	 Slist = sUSU.getSlist();
+    	 ini();
+	}
 }

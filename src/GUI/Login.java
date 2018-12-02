@@ -1,5 +1,6 @@
 package GUI;
 
+import Backend.Customer;
 import Backend.StoreAdmin;
 import Backend.StoreAdminList;
 import Backend.WarehouseAdmin;
@@ -62,13 +63,14 @@ public class Login {
 	    		if(a.equals("admin")&& b.equals("admin")) 
 	    		{
 	    		Super_User log=loader.getController();
+	    	    log.dispy();
+
 	    		Stage stage = new Stage();
 	    	    stage.setScene(new Scene(root));
 	    	    stage.setTitle("SuperStore");
 	    	    stage.show();
 	    	    
 	    	    log.setSTAGE(stage);
-	    	    log.dispy();
 	    		}
 	    		else
 		            label.setText("Wrong ID or Password! Try again");
@@ -130,10 +132,11 @@ public class Login {
 		    	else
 		            label.setText("Wrong ID or Password! Try again");
 			}
+
 		    else if(CurUser==3)
 		    {
 	    		Customer_Login log=loader.getController();
-	    		
+	    		log.set(new Backend.Customer());
 	    		Stage stage = new Stage();
 	    	    stage.setScene(new Scene(root));
 	    	    stage.setTitle("SuperStore");
