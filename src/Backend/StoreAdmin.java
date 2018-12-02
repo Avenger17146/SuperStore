@@ -40,5 +40,9 @@ public class StoreAdmin implements Serializable {
     {
 
     }
+    public String toString()
+    {
+        return ID;
+    }
 
 }

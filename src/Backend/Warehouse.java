@@ -47,4 +47,8 @@ public class Warehouse implements Serializable {
         Name = name;
         this.ID = ID;
     }
+    public String toString()
+    {
+        return Name;
+    }
 }

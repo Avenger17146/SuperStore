@@ -67,4 +67,8 @@ public class WarehouseAdmin implements Serializable{
             inputStream.close();
         }
     }
+    public String toString()
+    {
+        return ID;
+    }
 }

@@ -44,4 +44,9 @@ public class Store implements Serializable {
     public void setLinked(Warehouse linked) {
         this.linked = linked;
     }
+
+    public String toString()
+    {
+        return Name;
+    }
 }
