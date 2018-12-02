@@ -7,9 +7,29 @@ public class Customer implements Serializable {
     private Cart cart;
     private String name;
     private int funds;
-    private Database d;
+    private StoreList Slist;
+   // private Database d;
     Scanner s;
 
+    public void Deserial()
+    {
+        ObjectInputStream inputStream = null;
+
+        try{
+            inputStream = new ObjectInputStream(new FileInputStream("Stores"+".dat"));
+            Slist = (StoreList) inputStream.readObject();
+            inputStream.close();
+        }
+        catch (Exception e)
+        {
+            System.out.println(e.getMessage());
+        }
+        finally {
+
+        }
+    }
+
+/*
     public static void SerializeCU(Cart db, String a) throws IOException {
         ObjectOutputStream oStream = null;
 
@@ -26,7 +46,7 @@ public class Customer implements Serializable {
             oStream.close();
         }
     }
-
+*/
     public static Cart DeserializeCU(String a) throws IOException, ClassNotFoundException {
         ObjectInputStream inputStream = null;
         Cart db = null;
@@ -50,7 +70,7 @@ public class Customer implements Serializable {
         return cart;
     }
 
-    public Customer(Database dat, String a)
+    /*public Customer(Database dat, String a)
     {
         d = dat;
         name =  a;
@@ -66,6 +86,16 @@ public class Customer implements Serializable {
         }
         if ( cart == null) cart = new Cart(d,a);
         s = new Scanner(System.in);
+    }*/
+    public Customer()
+    {
+        try{
+            Deserial();
+        }
+        catch(Exception e)
+        {
+            e.printStackTrace();
+        }
     }
 
     public void addFunds(int a)
@@ -86,7 +116,7 @@ public class Customer implements Serializable {
 
     }
 
-    public Database checkout()
+   /* public Database checkout()
     {
         try
         {
@@ -99,8 +129,8 @@ public class Customer implements Serializable {
             return d;
         }
         return d;
-    }
-
+    }*/
+/*
     public void write()
     {
         try {
@@ -110,5 +140,5 @@ public class Customer implements Serializable {
         {
             e.getMessage();
         }
-    }
+    }*/
 }

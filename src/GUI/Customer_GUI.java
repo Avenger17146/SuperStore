@@ -1,9 +1,11 @@
 package GUI;
 
+import Backend.Customer;
 import javafx.fxml.FXML;
 import javafx.scene.control.ChoiceBox;
 
 public class Customer_GUI {
+    private Customer customer;
 
     @FXML
     private ChoiceBox Select_Store;
@@ -32,6 +34,10 @@ public class Customer_GUI {
     public void Browse()
     {
 
+    }
+    public void set(Customer a)
+    {
+        a = customer;
     }
 }
 
